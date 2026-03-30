@@ -1,0 +1,14 @@
+//
+// Created by r6awe on 3/27/2026.
+//
+
+#ifndef PUFFINTEXTEDITOR_TERRAINGENERATOR_H
+#define PUFFINTEXTEDITOR_TERRAINGENERATOR_H
+
+
+class TerrainGenerator
+{
+};
+
+
+#endif	  // PUFFINTEXTEDITOR_TERRAINGENERATOR_H

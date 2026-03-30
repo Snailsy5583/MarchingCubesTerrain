@@ -1,0 +1,212 @@
+[
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o vendor\\glad\\glad\\CMakeFiles\\glad.dir\\src\\glad.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glad\\glad\\src\\glad.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/src/glad.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glad/glad/CMakeFiles/glad.dir/src/glad.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\context.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\context.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/context.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/context.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\init.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\init.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/init.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/init.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\input.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\input.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/input.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/input.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\monitor.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\monitor.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/monitor.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\platform.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\platform.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/platform.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/platform.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\vulkan.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\vulkan.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/vulkan.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\window.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\window.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/window.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/window.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\egl_context.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\egl_context.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/egl_context.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\osmesa_context.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\osmesa_context.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/osmesa_context.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\null_init.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\null_init.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/null_init.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/null_init.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\null_monitor.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\null_monitor.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/null_monitor.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\null_window.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\null_window.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/null_window.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/null_window.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\null_joystick.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\null_joystick.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/null_joystick.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_module.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\win32_module.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_module.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_time.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\win32_time.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_time.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_thread.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\win32_thread.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_thread.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_init.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\win32_init.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_init.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_joystick.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\win32_joystick.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_joystick.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_monitor.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\win32_monitor.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_monitor.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\win32_window.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\win32_window.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_window.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\gcc.exe\" -DUNICODE -D_GLFW_WIN32 -D_UNICODE -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src -g -std=c99 -fdiagnostics-color=always -Wall -o vendor\\glfw\\src\\CMakeFiles\\glfw.dir\\wgl_context.c.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glfw\\src\\wgl_context.c",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/wgl_context.c",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm -g -std=c++17 -fdiagnostics-color=always -o vendor\\glm\\glm\\CMakeFiles\\glm.dir\\detail\\glm.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\vendor\\glm\\glm\\detail\\glm.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm/glm/detail/glm.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o libs\\Engine\\CMakeFiles\\Engine.dir\\Application.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\libs\\Engine\\Application.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Application.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/CMakeFiles/Engine.dir/Application.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o libs\\Engine\\CMakeFiles\\Engine.dir\\Layer.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\libs\\Engine\\Layer.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Layer.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/CMakeFiles/Engine.dir/Layer.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o libs\\Engine\\CMakeFiles\\Engine.dir\\Renderer.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\libs\\Engine\\Renderer.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Renderer.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/CMakeFiles/Engine.dir/Renderer.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o libs\\Engine\\CMakeFiles\\Engine.dir\\Shader.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\libs\\Engine\\Shader.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Shader.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/CMakeFiles/Engine.dir/Shader.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o libs\\Engine\\CMakeFiles\\Engine.dir\\Window.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\libs\\Engine\\Window.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Window.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/CMakeFiles/Engine.dir/Window.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o libs\\Engine\\CMakeFiles\\Engine.dir\\stb.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\libs\\Engine\\stb.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/stb.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/CMakeFiles/Engine.dir/stb.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o libs\\Engine\\CMakeFiles\\Engine.dir\\GameObject.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\libs\\Engine\\GameObject.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/GameObject.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/CMakeFiles/Engine.dir/GameObject.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o libs\\Engine\\CMakeFiles\\Engine.dir\\Component.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\libs\\Engine\\Component.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Component.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/CMakeFiles/Engine.dir/Component.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/.. -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o libs\\TerrainGenerator\\CMakeFiles\\TerrainGenerator.dir\\TerrainGenerator.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\libs\\TerrainGenerator\\TerrainGenerator.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/TerrainGenerator.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/TerrainGenerator/CMakeFiles/TerrainGenerator.dir/TerrainGenerator.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/.. -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include -g -fdiagnostics-color=always -o libs\\TerrainGenerator\\CMakeFiles\\TerrainGenerator.dir\\Terrain.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\libs\\TerrainGenerator\\Terrain.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/Terrain.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/TerrainGenerator/CMakeFiles/TerrainGenerator.dir/Terrain.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glad/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/stb/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../libs -g -fdiagnostics-color=always -o src\\Editor\\CMakeFiles\\TerrainEditor.dir\\main.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\src\\Editor\\main.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/main.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/src/Editor/CMakeFiles/TerrainEditor.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace",
+  "command": "\"C:\\PROGRA~1\\JETBRA~1\\CLion 2023.1.2\\bin\\mingw\\bin\\g++.exe\" -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glad/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/stb/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../libs -g -fdiagnostics-color=always -o src\\Editor\\CMakeFiles\\TerrainEditor.dir\\TerrainEditor.cpp.obj -c C:\\Dev\\College\\4361\\FinalProject\\MarchingCubesTerrain\\src\\Editor\\TerrainEditor.cpp",
+  "file": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/TerrainEditor.cpp",
+  "output": "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/src/Editor/CMakeFiles/TerrainEditor.dir/TerrainEditor.cpp.obj"
+}
+]

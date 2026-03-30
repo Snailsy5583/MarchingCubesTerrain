@@ -1,0 +1,16 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/cmake_install.cmake",
+		"C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glad/glad/cmake_install.cmake",
+		"C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/cmake_install.cmake",
+		"C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/cmake_install.cmake",
+		"C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/docs/cmake_install.cmake",
+		"C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glm/cmake_install.cmake",
+		"C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glm/glm/cmake_install.cmake",
+		"C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/cmake_install.cmake",
+		"C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/TerrainGenerator/cmake_install.cmake",
+		"C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/src/Editor/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

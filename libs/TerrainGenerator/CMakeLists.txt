@@ -13,7 +13,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
         glfw
         glad
         opengl32
-        )
+)
 
 target_include_directories(${PROJECT_NAME} PRIVATE
         ../../vendor/glad/glad/include
@@ -22,4 +22,4 @@ target_include_directories(${PROJECT_NAME} PRIVATE
         ../../vendor/imgui
         ../../vendor/stb
         ../
-        )
+)

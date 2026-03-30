@@ -9,7 +9,8 @@
 
 class Terrain : public Engine::GameObject
 {
-
+public:
+private:
 };
 
 

@@ -54,6 +54,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/imgui/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/cmake_install.cmake")
 endif()
 

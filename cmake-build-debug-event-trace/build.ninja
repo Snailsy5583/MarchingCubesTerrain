@@ -126,8 +126,6 @@ build vendor/glad/glad/CMakeFiles/glad.dir/src/glad.c.obj: C_COMPILER__glad_unsc
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = vendor\glad\glad\CMakeFiles\glad.dir
   OBJECT_FILE_DIR = vendor\glad\glad\CMakeFiles\glad.dir\src
-  TARGET_COMPILE_PDB = vendor\glad\glad\CMakeFiles\glad.dir\glad.pdb
-  TARGET_PDB = vendor\glad\glad\libglad.pdb
   TARGET_SUPPORT_DIR = vendor\glad\glad\CMakeFiles\glad.dir
 
 
@@ -144,9 +142,8 @@ build vendor/glad/glad/libglad.a: C_STATIC_LIBRARY_LINKER__glad_Debug vendor/gla
   OBJECT_DIR = vendor\glad\glad\CMakeFiles\glad.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = vendor\glad\glad\CMakeFiles\glad.dir\glad.pdb
   TARGET_FILE = vendor\glad\glad\libglad.a
-  TARGET_PDB = vendor\glad\glad\libglad.pdb
+  TARGET_PDB = glad.a.dbg
   TARGET_SUPPORT_DIR = vendor\glad\glad\CMakeFiles\glad.dir
 
 
@@ -319,8 +316,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/context.c.obj: C_COMPILER__glfw_unscan
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/init.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/init.c || cmake_object_order_depends_target_glfw
@@ -331,8 +326,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/init.c.obj: C_COMPILER__glfw_unscanned
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/input.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/input.c || cmake_object_order_depends_target_glfw
@@ -343,8 +336,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/input.c.obj: C_COMPILER__glfw_unscanne
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/monitor.c || cmake_object_order_depends_target_glfw
@@ -355,8 +346,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/monitor.c.obj: C_COMPILER__glfw_unscan
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/platform.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/platform.c || cmake_object_order_depends_target_glfw
@@ -367,8 +356,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/platform.c.obj: C_COMPILER__glfw_unsca
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/vulkan.c || cmake_object_order_depends_target_glfw
@@ -379,8 +366,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/vulkan.c.obj: C_COMPILER__glfw_unscann
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/window.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/window.c || cmake_object_order_depends_target_glfw
@@ -391,8 +376,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/window.c.obj: C_COMPILER__glfw_unscann
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/egl_context.c || cmake_object_order_depends_target_glfw
@@ -403,8 +386,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/egl_context.c.obj: C_COMPILER__glfw_un
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/osmesa_context.c || cmake_object_order_depends_target_glfw
@@ -415,8 +396,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.obj: C_COMPILER__glfw
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/null_init.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/null_init.c || cmake_object_order_depends_target_glfw
@@ -427,8 +406,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/null_init.c.obj: C_COMPILER__glfw_unsc
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/null_monitor.c || cmake_object_order_depends_target_glfw
@@ -439,8 +416,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.obj: C_COMPILER__glfw_u
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/null_window.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/null_window.c || cmake_object_order_depends_target_glfw
@@ -451,8 +426,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/null_window.c.obj: C_COMPILER__glfw_un
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/null_joystick.c || cmake_object_order_depends_target_glfw
@@ -463,8 +436,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.obj: C_COMPILER__glfw_
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_module.c || cmake_object_order_depends_target_glfw
@@ -475,8 +446,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj: C_COMPILER__glfw_u
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_time.c || cmake_object_order_depends_target_glfw
@@ -487,8 +456,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/win32_time.c.obj: C_COMPILER__glfw_uns
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_thread.c || cmake_object_order_depends_target_glfw
@@ -499,8 +466,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/win32_thread.c.obj: C_COMPILER__glfw_u
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_init.c || cmake_object_order_depends_target_glfw
@@ -511,8 +476,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: C_COMPILER__glfw_uns
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_joystick.c || cmake_object_order_depends_target_glfw
@@ -523,8 +486,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/win32_joystick.c.obj: C_COMPILER__glfw
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_monitor.c || cmake_object_order_depends_target_glfw
@@ -535,8 +496,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/win32_monitor.c.obj: C_COMPILER__glfw_
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/win32_window.c || cmake_object_order_depends_target_glfw
@@ -547,8 +506,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/win32_window.c.obj: C_COMPILER__glfw_u
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 build vendor/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C_COMPILER__glfw_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/wgl_context.c || cmake_object_order_depends_target_glfw
@@ -559,8 +516,6 @@ build vendor/glfw/src/CMakeFiles/glfw.dir/wgl_context.c.obj: C_COMPILER__glfw_un
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   OBJECT_FILE_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 
@@ -577,9 +532,8 @@ build vendor/glfw/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Debug vendor/glf
   OBJECT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = vendor\glfw\src\CMakeFiles\glfw.dir\glfw.pdb
   TARGET_FILE = vendor\glfw\src\libglfw3.a
-  TARGET_PDB = vendor\glfw\src\libglfw3.pdb
+  TARGET_PDB = glfw3.a.dbg
   TARGET_SUPPORT_DIR = vendor\glfw\src\CMakeFiles\glfw.dir
 
 
@@ -822,8 +776,6 @@ build vendor/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.obj: CXX_COMPILER__glm_un
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm
   OBJECT_DIR = vendor\glm\glm\CMakeFiles\glm.dir
   OBJECT_FILE_DIR = vendor\glm\glm\CMakeFiles\glm.dir\detail
-  TARGET_COMPILE_PDB = vendor\glm\glm\CMakeFiles\glm.dir\glm.pdb
-  TARGET_PDB = vendor\glm\glm\libglm.pdb
   TARGET_SUPPORT_DIR = vendor\glm\glm\CMakeFiles\glm.dir
 
 
@@ -840,9 +792,8 @@ build vendor/glm/glm/libglm.a: CXX_STATIC_LIBRARY_LINKER__glm_Debug vendor/glm/g
   OBJECT_DIR = vendor\glm\glm\CMakeFiles\glm.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = vendor\glm\glm\CMakeFiles\glm.dir\glm.pdb
   TARGET_FILE = vendor\glm\glm\libglm.a
-  TARGET_PDB = vendor\glm\glm\libglm.pdb
+  TARGET_PDB = glm.a.dbg
   TARGET_SUPPORT_DIR = vendor\glm\glm\CMakeFiles\glm.dir
 
 
@@ -916,6 +867,166 @@ build vendor/glm/glm/install/strip: phony vendor/glm/glm/CMakeFiles/install/stri
 # =============================================================================
 
 # =============================================================================
+# Object build statements for STATIC_LIBRARY target ImGui
+
+
+#############################################
+# Order-only phony target for ImGui
+
+build cmake_object_order_depends_target_ImGui: phony || cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
+
+build vendor/imgui/CMakeFiles/ImGui.dir/imgui.cpp.obj: CXX_COMPILER__ImGui_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/imgui.cpp || cmake_object_order_depends_target_ImGui
+  CONFIG = Debug
+  DEP_FILE = vendor\imgui\CMakeFiles\ImGui.dir\imgui.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
+  OBJECT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  TARGET_SUPPORT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+
+build vendor/imgui/CMakeFiles/ImGui.dir/imgui_draw.cpp.obj: CXX_COMPILER__ImGui_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/imgui_draw.cpp || cmake_object_order_depends_target_ImGui
+  CONFIG = Debug
+  DEP_FILE = vendor\imgui\CMakeFiles\ImGui.dir\imgui_draw.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
+  OBJECT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  TARGET_SUPPORT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+
+build vendor/imgui/CMakeFiles/ImGui.dir/imgui_tables.cpp.obj: CXX_COMPILER__ImGui_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/imgui_tables.cpp || cmake_object_order_depends_target_ImGui
+  CONFIG = Debug
+  DEP_FILE = vendor\imgui\CMakeFiles\ImGui.dir\imgui_tables.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
+  OBJECT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  TARGET_SUPPORT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+
+build vendor/imgui/CMakeFiles/ImGui.dir/imgui_widgets.cpp.obj: CXX_COMPILER__ImGui_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_ImGui
+  CONFIG = Debug
+  DEP_FILE = vendor\imgui\CMakeFiles\ImGui.dir\imgui_widgets.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
+  OBJECT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  TARGET_SUPPORT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+
+build vendor/imgui/CMakeFiles/ImGui.dir/imgui_demo.cpp.obj: CXX_COMPILER__ImGui_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/imgui_demo.cpp || cmake_object_order_depends_target_ImGui
+  CONFIG = Debug
+  DEP_FILE = vendor\imgui\CMakeFiles\ImGui.dir\imgui_demo.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
+  OBJECT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  TARGET_SUPPORT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+
+build vendor/imgui/CMakeFiles/ImGui.dir/backends/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__ImGui_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/backends/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_ImGui
+  CONFIG = Debug
+  DEP_FILE = vendor\imgui\CMakeFiles\ImGui.dir\backends\imgui_impl_opengl3.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
+  OBJECT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = vendor\imgui\CMakeFiles\ImGui.dir\backends
+  TARGET_SUPPORT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+
+build vendor/imgui/CMakeFiles/ImGui.dir/backends/imgui_impl_glfw.cpp.obj: CXX_COMPILER__ImGui_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/backends/imgui_impl_glfw.cpp || cmake_object_order_depends_target_ImGui
+  CONFIG = Debug
+  DEP_FILE = vendor\imgui\CMakeFiles\ImGui.dir\backends\imgui_impl_glfw.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/../glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
+  OBJECT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = vendor\imgui\CMakeFiles\ImGui.dir\backends
+  TARGET_SUPPORT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target ImGui
+
+
+#############################################
+# Link the static library vendor\imgui\libImGui.a
+
+build vendor/imgui/libImGui.a: CXX_STATIC_LIBRARY_LINKER__ImGui_Debug vendor/imgui/CMakeFiles/ImGui.dir/imgui.cpp.obj vendor/imgui/CMakeFiles/ImGui.dir/imgui_draw.cpp.obj vendor/imgui/CMakeFiles/ImGui.dir/imgui_tables.cpp.obj vendor/imgui/CMakeFiles/ImGui.dir/imgui_widgets.cpp.obj vendor/imgui/CMakeFiles/ImGui.dir/imgui_demo.cpp.obj vendor/imgui/CMakeFiles/ImGui.dir/backends/imgui_impl_opengl3.cpp.obj vendor/imgui/CMakeFiles/ImGui.dir/backends/imgui_impl_glfw.cpp.obj || vendor/glad/glad/libglad.a vendor/glfw/src/libglfw3.a
+  CONFIG = Debug
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = vendor\imgui\libImGui.a
+  TARGET_PDB = ImGui.a.dbg
+  TARGET_SUPPORT_DIR = vendor\imgui\CMakeFiles\ImGui.dir
+
+
+#############################################
+# Utility command for edit_cache
+
+build vendor/imgui/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Dev\College\4361\FinalProject\MarchingCubesTerrain\cmake-build-debug-event-trace\vendor\imgui && "C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build vendor/imgui/edit_cache: phony vendor/imgui/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build vendor/imgui/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Dev\College\4361\FinalProject\MarchingCubesTerrain\cmake-build-debug-event-trace\vendor\imgui && "C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Dev\College\4361\FinalProject\MarchingCubesTerrain -BC:\Dev\College\4361\FinalProject\MarchingCubesTerrain\cmake-build-debug-event-trace"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build vendor/imgui/rebuild_cache: phony vendor/imgui/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build vendor/imgui/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build vendor/imgui/CMakeFiles/install.util: CUSTOM_COMMAND vendor/imgui/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Dev\College\4361\FinalProject\MarchingCubesTerrain\cmake-build-debug-event-trace\vendor\imgui && "C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build vendor/imgui/install: phony vendor/imgui/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build vendor/imgui/CMakeFiles/install/local.util: CUSTOM_COMMAND vendor/imgui/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Dev\College\4361\FinalProject\MarchingCubesTerrain\cmake-build-debug-event-trace\vendor\imgui && "C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build vendor/imgui/install/local: phony vendor/imgui/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build vendor/imgui/CMakeFiles/install/strip.util: CUSTOM_COMMAND vendor/imgui/all
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Dev\College\4361\FinalProject\MarchingCubesTerrain\cmake-build-debug-event-trace\vendor\imgui && "C:\Program Files\JetBrains\CLion 2023.1.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build vendor/imgui/install/strip: phony vendor/imgui/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
 # Object build statements for STATIC_LIBRARY target Engine
 
 
@@ -931,8 +1042,6 @@ build libs/Engine/CMakeFiles/Engine.dir/Application.cpp.obj: CXX_COMPILER__Engin
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = libs\Engine\CMakeFiles\Engine.dir
   OBJECT_FILE_DIR = libs\Engine\CMakeFiles\Engine.dir
-  TARGET_COMPILE_PDB = libs\Engine\CMakeFiles\Engine.dir\Engine.pdb
-  TARGET_PDB = libs\Engine\libEngine.pdb
   TARGET_SUPPORT_DIR = libs\Engine\CMakeFiles\Engine.dir
 
 build libs/Engine/CMakeFiles/Engine.dir/Layer.cpp.obj: CXX_COMPILER__Engine_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Layer.cpp || cmake_object_order_depends_target_Engine
@@ -942,8 +1051,6 @@ build libs/Engine/CMakeFiles/Engine.dir/Layer.cpp.obj: CXX_COMPILER__Engine_unsc
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = libs\Engine\CMakeFiles\Engine.dir
   OBJECT_FILE_DIR = libs\Engine\CMakeFiles\Engine.dir
-  TARGET_COMPILE_PDB = libs\Engine\CMakeFiles\Engine.dir\Engine.pdb
-  TARGET_PDB = libs\Engine\libEngine.pdb
   TARGET_SUPPORT_DIR = libs\Engine\CMakeFiles\Engine.dir
 
 build libs/Engine/CMakeFiles/Engine.dir/Renderer.cpp.obj: CXX_COMPILER__Engine_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Renderer.cpp || cmake_object_order_depends_target_Engine
@@ -953,8 +1060,6 @@ build libs/Engine/CMakeFiles/Engine.dir/Renderer.cpp.obj: CXX_COMPILER__Engine_u
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = libs\Engine\CMakeFiles\Engine.dir
   OBJECT_FILE_DIR = libs\Engine\CMakeFiles\Engine.dir
-  TARGET_COMPILE_PDB = libs\Engine\CMakeFiles\Engine.dir\Engine.pdb
-  TARGET_PDB = libs\Engine\libEngine.pdb
   TARGET_SUPPORT_DIR = libs\Engine\CMakeFiles\Engine.dir
 
 build libs/Engine/CMakeFiles/Engine.dir/Shader.cpp.obj: CXX_COMPILER__Engine_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Shader.cpp || cmake_object_order_depends_target_Engine
@@ -964,8 +1069,6 @@ build libs/Engine/CMakeFiles/Engine.dir/Shader.cpp.obj: CXX_COMPILER__Engine_uns
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = libs\Engine\CMakeFiles\Engine.dir
   OBJECT_FILE_DIR = libs\Engine\CMakeFiles\Engine.dir
-  TARGET_COMPILE_PDB = libs\Engine\CMakeFiles\Engine.dir\Engine.pdb
-  TARGET_PDB = libs\Engine\libEngine.pdb
   TARGET_SUPPORT_DIR = libs\Engine\CMakeFiles\Engine.dir
 
 build libs/Engine/CMakeFiles/Engine.dir/Window.cpp.obj: CXX_COMPILER__Engine_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Window.cpp || cmake_object_order_depends_target_Engine
@@ -975,8 +1078,6 @@ build libs/Engine/CMakeFiles/Engine.dir/Window.cpp.obj: CXX_COMPILER__Engine_uns
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = libs\Engine\CMakeFiles\Engine.dir
   OBJECT_FILE_DIR = libs\Engine\CMakeFiles\Engine.dir
-  TARGET_COMPILE_PDB = libs\Engine\CMakeFiles\Engine.dir\Engine.pdb
-  TARGET_PDB = libs\Engine\libEngine.pdb
   TARGET_SUPPORT_DIR = libs\Engine\CMakeFiles\Engine.dir
 
 build libs/Engine/CMakeFiles/Engine.dir/stb.cpp.obj: CXX_COMPILER__Engine_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/stb.cpp || cmake_object_order_depends_target_Engine
@@ -986,8 +1087,6 @@ build libs/Engine/CMakeFiles/Engine.dir/stb.cpp.obj: CXX_COMPILER__Engine_unscan
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = libs\Engine\CMakeFiles\Engine.dir
   OBJECT_FILE_DIR = libs\Engine\CMakeFiles\Engine.dir
-  TARGET_COMPILE_PDB = libs\Engine\CMakeFiles\Engine.dir\Engine.pdb
-  TARGET_PDB = libs\Engine\libEngine.pdb
   TARGET_SUPPORT_DIR = libs\Engine\CMakeFiles\Engine.dir
 
 build libs/Engine/CMakeFiles/Engine.dir/GameObject.cpp.obj: CXX_COMPILER__Engine_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/GameObject.cpp || cmake_object_order_depends_target_Engine
@@ -997,8 +1096,6 @@ build libs/Engine/CMakeFiles/Engine.dir/GameObject.cpp.obj: CXX_COMPILER__Engine
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = libs\Engine\CMakeFiles\Engine.dir
   OBJECT_FILE_DIR = libs\Engine\CMakeFiles\Engine.dir
-  TARGET_COMPILE_PDB = libs\Engine\CMakeFiles\Engine.dir\Engine.pdb
-  TARGET_PDB = libs\Engine\libEngine.pdb
   TARGET_SUPPORT_DIR = libs\Engine\CMakeFiles\Engine.dir
 
 build libs/Engine/CMakeFiles/Engine.dir/Component.cpp.obj: CXX_COMPILER__Engine_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Component.cpp || cmake_object_order_depends_target_Engine
@@ -1008,8 +1105,15 @@ build libs/Engine/CMakeFiles/Engine.dir/Component.cpp.obj: CXX_COMPILER__Engine_
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = libs\Engine\CMakeFiles\Engine.dir
   OBJECT_FILE_DIR = libs\Engine\CMakeFiles\Engine.dir
-  TARGET_COMPILE_PDB = libs\Engine\CMakeFiles\Engine.dir\Engine.pdb
-  TARGET_PDB = libs\Engine\libEngine.pdb
+  TARGET_SUPPORT_DIR = libs\Engine\CMakeFiles\Engine.dir
+
+build libs/Engine/CMakeFiles/Engine.dir/Camera.cpp.obj: CXX_COMPILER__Engine_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/Camera.cpp || cmake_object_order_depends_target_Engine
+  CONFIG = Debug
+  DEP_FILE = libs\Engine\CMakeFiles\Engine.dir\Camera.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/../Engine -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
+  OBJECT_DIR = libs\Engine\CMakeFiles\Engine.dir
+  OBJECT_FILE_DIR = libs\Engine\CMakeFiles\Engine.dir
   TARGET_SUPPORT_DIR = libs\Engine\CMakeFiles\Engine.dir
 
 
@@ -1020,15 +1124,14 @@ build libs/Engine/CMakeFiles/Engine.dir/Component.cpp.obj: CXX_COMPILER__Engine_
 #############################################
 # Link the static library libs\Engine\libEngine.a
 
-build libs/Engine/libEngine.a: CXX_STATIC_LIBRARY_LINKER__Engine_Debug libs/Engine/CMakeFiles/Engine.dir/Application.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Layer.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Renderer.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Shader.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Window.cpp.obj libs/Engine/CMakeFiles/Engine.dir/stb.cpp.obj libs/Engine/CMakeFiles/Engine.dir/GameObject.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Component.cpp.obj || vendor/glad/glad/libglad.a vendor/glfw/src/libglfw3.a
+build libs/Engine/libEngine.a: CXX_STATIC_LIBRARY_LINKER__Engine_Debug libs/Engine/CMakeFiles/Engine.dir/Application.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Layer.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Renderer.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Shader.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Window.cpp.obj libs/Engine/CMakeFiles/Engine.dir/stb.cpp.obj libs/Engine/CMakeFiles/Engine.dir/GameObject.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Component.cpp.obj libs/Engine/CMakeFiles/Engine.dir/Camera.cpp.obj || vendor/glad/glad/libglad.a vendor/glfw/src/libglfw3.a
   CONFIG = Debug
   LANGUAGE_COMPILE_FLAGS = -g
   OBJECT_DIR = libs\Engine\CMakeFiles\Engine.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = libs\Engine\CMakeFiles\Engine.dir\Engine.pdb
   TARGET_FILE = libs\Engine\libEngine.a
-  TARGET_PDB = libs\Engine\libEngine.pdb
+  TARGET_PDB = Engine.a.dbg
   TARGET_SUPPORT_DIR = libs\Engine\CMakeFiles\Engine.dir
 
 
@@ -1117,8 +1220,6 @@ build libs/TerrainGenerator/CMakeFiles/TerrainGenerator.dir/TerrainGenerator.cpp
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/.. -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir
   OBJECT_FILE_DIR = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir
-  TARGET_COMPILE_PDB = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir\TerrainGenerator.pdb
-  TARGET_PDB = libs\TerrainGenerator\libTerrainGenerator.pdb
   TARGET_SUPPORT_DIR = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir
 
 build libs/TerrainGenerator/CMakeFiles/TerrainGenerator.dir/Terrain.cpp.obj: CXX_COMPILER__TerrainGenerator_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/Terrain.cpp || cmake_object_order_depends_target_TerrainGenerator
@@ -1128,8 +1229,6 @@ build libs/TerrainGenerator/CMakeFiles/TerrainGenerator.dir/Terrain.cpp.obj: CXX
   INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/../../vendor/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/.. -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/include
   OBJECT_DIR = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir
   OBJECT_FILE_DIR = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir
-  TARGET_COMPILE_PDB = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir\TerrainGenerator.pdb
-  TARGET_PDB = libs\TerrainGenerator\libTerrainGenerator.pdb
   TARGET_SUPPORT_DIR = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir
 
 
@@ -1146,9 +1245,8 @@ build libs/TerrainGenerator/libTerrainGenerator.a: CXX_STATIC_LIBRARY_LINKER__Te
   OBJECT_DIR = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir\TerrainGenerator.pdb
   TARGET_FILE = libs\TerrainGenerator\libTerrainGenerator.a
-  TARGET_PDB = libs\TerrainGenerator\libTerrainGenerator.pdb
+  TARGET_PDB = TerrainGenerator.a.dbg
   TARGET_SUPPORT_DIR = libs\TerrainGenerator\CMakeFiles\TerrainGenerator.dir
 
 
@@ -1228,28 +1326,24 @@ build libs/TerrainGenerator/install/strip: phony libs/TerrainGenerator/CMakeFile
 #############################################
 # Order-only phony target for TerrainEditor
 
-build cmake_object_order_depends_target_TerrainEditor: phony || cmake_object_order_depends_target_Engine cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
+build cmake_object_order_depends_target_TerrainEditor: phony || cmake_object_order_depends_target_Engine cmake_object_order_depends_target_ImGui cmake_object_order_depends_target_TerrainGenerator cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
 
 build src/Editor/CMakeFiles/TerrainEditor.dir/main.cpp.obj: CXX_COMPILER__TerrainEditor_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/main.cpp || cmake_object_order_depends_target_TerrainEditor
   CONFIG = Debug
   DEP_FILE = src\Editor\CMakeFiles\TerrainEditor.dir\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glad/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/stb/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../libs
+  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/stb/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../libs
   OBJECT_DIR = src\Editor\CMakeFiles\TerrainEditor.dir
   OBJECT_FILE_DIR = src\Editor\CMakeFiles\TerrainEditor.dir
-  TARGET_COMPILE_PDB = src\Editor\CMakeFiles\TerrainEditor.dir\
-  TARGET_PDB = src\Editor\TerrainEditor.pdb
   TARGET_SUPPORT_DIR = src\Editor\CMakeFiles\TerrainEditor.dir
 
 build src/Editor/CMakeFiles/TerrainEditor.dir/TerrainEditor.cpp.obj: CXX_COMPILER__TerrainEditor_unscanned_Debug C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/TerrainEditor.cpp || cmake_object_order_depends_target_TerrainEditor
   CONFIG = Debug
   DEP_FILE = src\Editor\CMakeFiles\TerrainEditor.dir\TerrainEditor.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glad/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/stb/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../libs
+  INCLUDES = -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glad/glad/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glfw/include -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glm -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/imgui -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/stb/stb -IC:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../libs
   OBJECT_DIR = src\Editor\CMakeFiles\TerrainEditor.dir
   OBJECT_FILE_DIR = src\Editor\CMakeFiles\TerrainEditor.dir
-  TARGET_COMPILE_PDB = src\Editor\CMakeFiles\TerrainEditor.dir\
-  TARGET_PDB = src\Editor\TerrainEditor.pdb
   TARGET_SUPPORT_DIR = src\Editor\CMakeFiles\TerrainEditor.dir
 
 
@@ -1260,17 +1354,16 @@ build src/Editor/CMakeFiles/TerrainEditor.dir/TerrainEditor.cpp.obj: CXX_COMPILE
 #############################################
 # Link the executable src\Editor\TerrainEditor.exe
 
-build src/Editor/TerrainEditor.exe: CXX_EXECUTABLE_LINKER__TerrainEditor_Debug src/Editor/CMakeFiles/TerrainEditor.dir/main.cpp.obj src/Editor/CMakeFiles/TerrainEditor.dir/TerrainEditor.cpp.obj | libs/Engine/libEngine.a vendor/glfw/src/libglfw3.a vendor/glad/glad/libglad.a || libs/Engine/libEngine.a vendor/glad/glad/libglad.a vendor/glfw/src/libglfw3.a
+build src/Editor/TerrainEditor.exe: CXX_EXECUTABLE_LINKER__TerrainEditor_Debug src/Editor/CMakeFiles/TerrainEditor.dir/main.cpp.obj src/Editor/CMakeFiles/TerrainEditor.dir/TerrainEditor.cpp.obj | libs/Engine/libEngine.a libs/TerrainGenerator/libTerrainGenerator.a vendor/imgui/libImGui.a vendor/glfw/src/libglfw3.a vendor/glad/glad/libglad.a || libs/Engine/libEngine.a libs/TerrainGenerator/libTerrainGenerator.a vendor/glad/glad/libglad.a vendor/glfw/src/libglfw3.a vendor/imgui/libImGui.a
   CONFIG = Debug
   FLAGS = -g
-  LINK_LIBRARIES = libs/Engine/libEngine.a  vendor/glfw/src/libglfw3.a  vendor/glad/glad/libglad.a  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libs/Engine/libEngine.a  libs/TerrainGenerator/libTerrainGenerator.a  vendor/imgui/libImGui.a  vendor/glfw/src/libglfw3.a  vendor/glad/glad/libglad.a  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\Editor\CMakeFiles\TerrainEditor.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = src\Editor\CMakeFiles\TerrainEditor.dir\
   TARGET_FILE = src\Editor\TerrainEditor.exe
   TARGET_IMPLIB = src\Editor\libTerrainEditor.dll.a
-  TARGET_PDB = src\Editor\TerrainEditor.pdb
+  TARGET_PDB = TerrainEditor.exe.dbg
   TARGET_SUPPORT_DIR = src\Editor\CMakeFiles\TerrainEditor.dir
 
 
@@ -1343,6 +1436,8 @@ build src/Editor/install/strip: phony src/Editor/CMakeFiles/install/strip.util
 
 build Engine: phony libs/Engine/libEngine.a
 
+build ImGui: phony vendor/imgui/libImGui.a
+
 build TerrainEditor: phony src/Editor/TerrainEditor.exe
 
 build TerrainEditor.exe: phony src/Editor/TerrainEditor.exe
@@ -1356,6 +1451,8 @@ build glfw: phony vendor/glfw/src/libglfw3.a
 build glm: phony vendor/glm/glm/libglm.a
 
 build libEngine.a: phony libs/Engine/libEngine.a
+
+build libImGui.a: phony vendor/imgui/libImGui.a
 
 build libTerrainGenerator.a: phony libs/TerrainGenerator/libTerrainGenerator.a
 
@@ -1377,7 +1474,7 @@ build update_mappings: phony vendor/glfw/src/update_mappings
 #############################################
 # Folder: C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace
 
-build all: phony vendor/glad/glad/all vendor/glfw/all vendor/glm/all libs/Engine/all libs/TerrainGenerator/all src/Editor/all
+build all: phony vendor/glad/glad/all vendor/glfw/all vendor/glm/all vendor/imgui/all libs/Engine/all libs/TerrainGenerator/all src/Editor/all
 
 # =============================================================================
 
@@ -1443,20 +1540,27 @@ build vendor/glm/all: phony vendor/glm/glm/all
 build vendor/glm/glm/all: phony vendor/glm/glm/libglm.a
 
 # =============================================================================
+
+#############################################
+# Folder: C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/imgui
+
+build vendor/imgui/all: phony vendor/imgui/libImGui.a
+
+# =============================================================================
 # Built-in targets
 
 
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glad/glad/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/docs/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glm/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glm/glm/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/TerrainGenerator/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/src/Editor/cmake_install.cmake: RERUN_CMAKE | C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/cmake_uninstall.cmake.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/glfw3.pc.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/glfw3Config.cmake.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/docs/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm/glm/CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCCompilerABI.c C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCompilerSupport.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeSystem.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckIncludeFile.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckLibraryExists.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-CXX-CXXImportStd.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindDoxygen.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindThreads.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeInspectCLinker.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/4.2.2/CMakeCCompiler.cmake CMakeFiles/4.2.2/CMakeCXXCompiler.cmake CMakeFiles/4.2.2/CMakeRCCompiler.cmake CMakeFiles/4.2.2/CMakeSystem.cmake
+build build.ninja C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glad/glad/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/src/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glfw/docs/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glm/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/glm/glm/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/vendor/imgui/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/Engine/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/libs/TerrainGenerator/cmake_install.cmake C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/cmake-build-debug-event-trace/src/Editor/cmake_install.cmake: RERUN_CMAKE | C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/cmake_uninstall.cmake.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/glfw3.pc.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/glfw3Config.cmake.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/docs/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm/glm/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckIncludeFile.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckLibraryExists.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindDoxygen.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindThreads.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/4.2.2/CMakeCCompiler.cmake CMakeFiles/4.2.2/CMakeCXXCompiler.cmake CMakeFiles/4.2.2/CMakeRCCompiler.cmake CMakeFiles/4.2.2/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/cmake_uninstall.cmake.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/glfw3.pc.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/glfw3Config.cmake.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/docs/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm/glm/CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCCompilerABI.c C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineCompilerSupport.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeRCCompiler.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeSystem.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeTestRCCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckIncludeFile.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckLibraryExists.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-CXX-CXXImportStd.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindDoxygen.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindThreads.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeInspectCLinker.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-Determine-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/4.2.2/CMakeCCompiler.cmake CMakeFiles/4.2.2/CMakeCXXCompiler.cmake CMakeFiles/4.2.2/CMakeRCCompiler.cmake CMakeFiles/4.2.2/CMakeSystem.cmake: phony
+build C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/Engine/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/libs/TerrainGenerator/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glad/glad/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/cmake_uninstall.cmake.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/glfw3.pc.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/CMake/glfw3Config.cmake.in C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/docs/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glfw/src/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/glm/glm/CMakeLists.txt C$:/Dev/College/4361/FinalProject/MarchingCubesTerrain/vendor/imgui/CMakeLists.txt C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/BasicConfigVersion-SameMajorVersion.cmake.in C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeDependentOption.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakePackageConfigHelpers.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckCSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckIncludeFile.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/CheckLibraryExists.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindDoxygen.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/FindThreads.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/GNUInstallDirs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Internal/CheckSourceCompiles.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Linker/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.1.2/bin/cmake/win/x64/share/cmake-4.2/Modules/WriteBasicConfigVersionFile.cmake CMakeCache.txt CMakeFiles/4.2.2/CMakeCCompiler.cmake CMakeFiles/4.2.2/CMakeCXXCompiler.cmake CMakeFiles/4.2.2/CMakeRCCompiler.cmake CMakeFiles/4.2.2/CMakeSystem.cmake: phony
 
 
 #############################################

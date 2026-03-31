@@ -6,6 +6,10 @@
 #define PUFFINTEXTEDITOR_TERRAINEDITOR_H
 
 #include <Engine/Application.h>
+#include <Engine/Renderer.h>
+
+#include "TerrainGenerator/TerrainGenerator.h"
+
 
 class TerrainEditor : public Engine::Application
 {
@@ -13,6 +17,12 @@ public:
 	TerrainEditor();
 
 	void Update(float dt) override;
+
+private:
+	TerrainGenerator m_TerrainGenerator;
+	Camera m_Camera;
+	Engine::Shader shader;
+	Engine::Mesh test;
 };
 
 

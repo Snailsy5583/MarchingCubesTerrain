@@ -10,8 +10,16 @@
 class TerrainGenerator
 {
 public:
+	TerrainGenerator(glm::vec3 size, int resolution, float threshold);
+
 private:
-	Terrain terrain;
+	float GetScalarFieldValue(glm::vec3 position);
+
+	void InitScalarField();
+
+private:
+	std::vector<std::pair<glm::vec3, float>> m_ScalarField;
+	Terrain m_Terrain;
 };
 
 

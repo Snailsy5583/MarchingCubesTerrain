@@ -36,7 +36,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 8,
+				"line" : 9,
 				"parent" : 0
 			},
 			{
@@ -45,13 +45,13 @@
 			{
 				"command" : 1,
 				"file" : 1,
-				"line" : 37,
+				"line" : 50,
 				"parent" : 3
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 12,
+				"line" : 15,
 				"parent" : 0
 			}
 		]
@@ -66,6 +66,14 @@
 		{
 			"backtrace" : 2,
 			"id" : "Engine::@901a357448c6b17ab9b8"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "TerrainGenerator::@28dcab5f0d4ed0ae418e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "ImGui::@3edc7d76825c910d4a8d"
 		}
 	],
 	"compileGroups" : 
@@ -81,7 +89,7 @@
 			[
 				{
 					"backtrace" : 5,
-					"path" : "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glad/glad/glad/include"
+					"path" : "C:/Dev/College/4361/FinalProject/MarchingCubesTerrain/src/Editor/../../vendor/glad/glad/include"
 				},
 				{
 					"backtrace" : 5,
@@ -132,7 +140,15 @@
 		},
 		{
 			"backtrace" : 2,
+			"id" : "ImGui::@3edc7d76825c910d4a8d"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "Engine::@901a357448c6b17ab9b8"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "TerrainGenerator::@28dcab5f0d4ed0ae418e"
 		}
 	],
 	"id" : "TerrainEditor::@c9746dc48c5ef4312d43",
@@ -147,6 +163,16 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "libs\\Engine\\libEngine.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "libs\\TerrainGenerator\\libTerrainGenerator.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "vendor\\imgui\\libImGui.a",
 				"role" : "libraries"
 			},
 			{
@@ -176,6 +202,14 @@
 		{
 			"backtrace" : 2,
 			"id" : "Engine::@901a357448c6b17ab9b8"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "TerrainGenerator::@28dcab5f0d4ed0ae418e"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "ImGui::@3edc7d76825c910d4a8d"
 		}
 	],
 	"name" : "TerrainEditor",

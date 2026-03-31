@@ -30,7 +30,8 @@
 						5,
 						7,
 						8,
-						9
+						9,
+						10
 					],
 					"hasInstallRule" : true,
 					"jsonFile" : "directory-.-Debug-f6f22219c74102c3da70.json",
@@ -53,7 +54,7 @@
 					"source" : "vendor/glad/glad",
 					"targetIndexes" : 
 					[
-						3
+						4
 					]
 				},
 				{
@@ -68,7 +69,7 @@
 						4
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-vendor.glfw-Debug-7e03c54c074c0ff44e7d.json",
+					"jsonFile" : "directory-vendor.glfw-Debug-c098ceb51a78d4bfd786.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -78,13 +79,13 @@
 					"source" : "vendor/glfw",
 					"targetIndexes" : 
 					[
-						6
+						7
 					]
 				},
 				{
 					"build" : "vendor/glfw/src",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-vendor.glfw.src-Debug-74368b833becdbf3598c.json",
+					"jsonFile" : "directory-vendor.glfw.src-Debug-2fe8d68c5aecbd5d49d9.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -94,8 +95,8 @@
 					"source" : "vendor/glfw/src",
 					"targetIndexes" : 
 					[
-						4,
-						7
+						5,
+						8
 					]
 				},
 				{
@@ -140,7 +141,22 @@
 					"source" : "vendor/glm/glm",
 					"targetIndexes" : 
 					[
-						5
+						6
+					]
+				},
+				{
+					"build" : "vendor/imgui",
+					"jsonFile" : "directory-vendor.imgui-Debug-4cd6fa99269b90a18da9.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 4,
+					"source" : "vendor/imgui",
+					"targetIndexes" : 
+					[
+						1
 					]
 				},
 				{
@@ -151,7 +167,7 @@
 						"string" : "3.25"
 					},
 					"parentIndex" : 0,
-					"projectIndex" : 4,
+					"projectIndex" : 5,
 					"source" : "libs/Engine",
 					"targetIndexes" : 
 					[
@@ -166,11 +182,11 @@
 						"string" : "3.25"
 					},
 					"parentIndex" : 0,
-					"projectIndex" : 5,
+					"projectIndex" : 6,
 					"source" : "libs/TerrainGenerator",
 					"targetIndexes" : 
 					[
-						2
+						3
 					]
 				},
 				{
@@ -181,11 +197,11 @@
 						"string" : "3.25"
 					},
 					"parentIndex" : 0,
-					"projectIndex" : 6,
+					"projectIndex" : 7,
 					"source" : "src/Editor",
 					"targetIndexes" : 
 					[
-						1
+						2
 					]
 				}
 			],
@@ -200,7 +216,8 @@
 						3,
 						4,
 						5,
-						6
+						6,
+						7
 					],
 					"directoryIndexes" : 
 					[
@@ -217,7 +234,7 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						3
+						4
 					]
 				},
 				{
@@ -235,9 +252,9 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						4,
-						6,
-						7
+						5,
+						7,
+						8
 					]
 				},
 				{
@@ -254,13 +271,25 @@
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						5
+						6
 					]
 				},
 				{
 					"directoryIndexes" : 
 					[
 						7
+					],
+					"name" : "ImGui",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						8
 					],
 					"name" : "Engine",
 					"parentIndex" : 0,
@@ -272,50 +301,57 @@
 				{
 					"directoryIndexes" : 
 					[
-						8
+						9
 					],
 					"name" : "TerrainGenerator",
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						2
+						3
 					]
 				},
 				{
 					"directoryIndexes" : 
 					[
-						9
+						10
 					],
 					"name" : "TerrainEditor",
 					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
-						1
+						2
 					]
 				}
 			],
 			"targets" : 
 			[
 				{
-					"directoryIndex" : 7,
+					"directoryIndex" : 8,
 					"id" : "Engine::@901a357448c6b17ab9b8",
-					"jsonFile" : "target-Engine-Debug-100bd1e9611dd967e001.json",
+					"jsonFile" : "target-Engine-Debug-f3b02cc97dbf175204fc.json",
 					"name" : "Engine",
+					"projectIndex" : 5
+				},
+				{
+					"directoryIndex" : 7,
+					"id" : "ImGui::@3edc7d76825c910d4a8d",
+					"jsonFile" : "target-ImGui-Debug-5ca475742848cf3b0f5a.json",
+					"name" : "ImGui",
 					"projectIndex" : 4
 				},
 				{
-					"directoryIndex" : 9,
+					"directoryIndex" : 10,
 					"id" : "TerrainEditor::@c9746dc48c5ef4312d43",
-					"jsonFile" : "target-TerrainEditor-Debug-7703e213c23093f18ffa.json",
+					"jsonFile" : "target-TerrainEditor-Debug-e2835113e66b05d7186a.json",
 					"name" : "TerrainEditor",
-					"projectIndex" : 6
+					"projectIndex" : 7
 				},
 				{
-					"directoryIndex" : 8,
+					"directoryIndex" : 9,
 					"id" : "TerrainGenerator::@28dcab5f0d4ed0ae418e",
 					"jsonFile" : "target-TerrainGenerator-Debug-b9a93585245268fda5c6.json",
 					"name" : "TerrainGenerator",
-					"projectIndex" : 5
+					"projectIndex" : 6
 				},
 				{
 					"directoryIndex" : 1,

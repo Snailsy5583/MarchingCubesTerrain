@@ -5,6 +5,9 @@
 #ifndef PUFFINTEXTEDITOR_TERRAINEDITOR_H
 #define PUFFINTEXTEDITOR_TERRAINEDITOR_H
 
+#include "FlyCamera.h"
+
+
 #include <Engine/Application.h>
 #include <Engine/Renderer.h>
 
@@ -20,7 +23,7 @@ public:
 
 private:
 	TerrainGenerator m_TerrainGenerator;
-	Camera m_Camera;
+	FlyCamera m_Camera;
 	Engine::Shader shader;
 	Engine::Mesh test;
 };

@@ -33,5 +33,5 @@ void main()
     TexCoord = aTexCoord;
 
     // Final clip space position
-    gl_Position = projection * view * worldPos;
+    gl_Position = projection * view * model * vec4(aPos, 1);
 }

@@ -1,12 +1,12 @@
 //
 // Created by r6awe on 3/27/2026.
 //
-#include "glad/glad.h"
 
 #include "TerrainEditor.h"
 
-
+#include "Engine/OBJ_Loader.h"
 #include "Engine/Renderer.h"
+
 #include "imgui.h"
 
 #include "backends/imgui_impl_glfw.h"
@@ -16,14 +16,8 @@
 TerrainEditor::TerrainEditor()
 	: Application(1280, 720, "Terrain Editor"),
 	  m_TerrainGenerator(glm::vec3 {1, 1, 1}, 20, 0.5),
-	  m_Camera(Camera::Perspective,
-			   {0, 0, -2},
-			   {.5, 0, .866, 0},
-			   (float) m_MainWindow->GetWindowSize().x /
-				   m_MainWindow->GetWindowSize().y,
-			   .01,
-			   1000,
-			   90),
+	  m_Camera((float) m_MainWindow->GetWindowSize().x /
+			   m_MainWindow->GetWindowSize().y),
 	  shader(Engine::Shader::Compile("C:"
 									 "\\Dev\\College\\4361\\FinalProject\\March"
 									 "ingCubesTerrain\\src\\Editor"
@@ -34,6 +28,7 @@ TerrainEditor::TerrainEditor()
 									 "\\demo.frag"))
 
 {
+	m_LayerStack.Push(m_Camera.GetCameraControllerLayer());
 	glfwMaximizeWindow(m_MainWindow->GetGLFWWindow());
 	const float main_scale = ImGui_ImplGlfw_GetContentScaleForMonitor(
 		glfwGetPrimaryMonitor());	 // Valid on GLFW 3.3+ only
@@ -67,37 +62,36 @@ TerrainEditor::TerrainEditor()
 	ImGui_ImplOpenGL3_Init("#version 330");
 
 	shader.Bind();
-	shader.SetUniformMat4("view", m_Camera.GetViewMatrix());
-	shader.SetUniformMat4("projection", m_Camera.GetProjectionMatrix());
 	shader.SetUniformVec("lightPos", m_Camera.GetPosition());
 	shader.SetUniformVec("viewPos", m_Camera.GetPosition());
 	shader.SetUniformVec("lightColor", {1, 1, 1});
 	shader.UnBind();
-	test = Engine::Renderer::GenQuad({0, 0, 0}, {1, 1}, &shader);
+
+	test = Engine::Mesh::ImportFromOBJ(
+		"C:\\Users\\r6awe\\Desktop\\blender\\chicken.obj",
+		&shader);
 }
 
 void TerrainEditor::Update(float dt)
 {
-	ImGui_ImplOpenGL3_NewFrame();
-	ImGui_ImplGlfw_NewFrame();
-	ImGui::NewFrame();
-
+	m_Camera.Update(dt);
 	shader.Bind();
-	shader.SetUniformMat4("view", m_Camera.GetViewMatrix());
-	shader.UnBind();
-
+	shader.SetUniformVec("lightPos", m_Camera.GetPosition());
+	shader.SetUniformVec("viewPos", m_Camera.GetPosition());
 	Engine::Renderer::SubmitObject(m_Camera, test);
 
-	{
+	{	 // Inspector Window
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui_ImplGlfw_NewFrame();
+		ImGui::NewFrame();
 		ImGui::Begin("Terrain Editor");
 
-		ImGui::DragFloat3("CamPos", (&m_Camera.GetPosition()[0]));
-		ImGui::DragFloat4("CamRot", &m_Camera.GetRotation()[0], .01);
-		m_Camera.GetRotation() = glm::normalize(m_Camera.GetRotation());
+		ImGui::Separator();
+
+		m_Camera.ImGuiExposeParameters();
 
 		ImGui::End();
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
-
-	ImGui::Render();
-	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }

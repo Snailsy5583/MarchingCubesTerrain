@@ -4,7 +4,9 @@ project(TerrainEditor)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(${PROJECT_NAME}
-        main.cpp TerrainEditor.cpp TerrainEditor.h)
+        main.cpp TerrainEditor.cpp TerrainEditor.h
+        FlyCamera.cpp
+        FlyCamera.h)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
         Engine

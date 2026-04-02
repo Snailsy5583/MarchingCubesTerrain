@@ -10,7 +10,12 @@ in vec2 TexCoord;
 uniform vec3 lightPos;
 uniform vec3 viewPos;
 uniform vec3 lightColor;
-uniform vec3 baseColor = vec3(1.f, 0.f, 1.f);
+uniform vec3 baseColor = vec3(1.f, 1.f, 1.f)*0.9;
+
+// Params
+uniform float ambientStrength = 0.1;
+uniform float specularStrength = 0.5;
+uniform float shininess = 32.0;// higher = tighter highlight
 
 // Material
 uniform bool useTexture = false;
@@ -24,7 +29,6 @@ void main()
     vec3 viewDir = normalize(viewPos - FragPos);
 
     // --- Ambient ---
-    float ambientStrength = 0.1;
     vec3 ambient = ambientStrength * lightColor;
 
     // --- Diffuse ---
@@ -32,10 +36,8 @@ void main()
     vec3 diffuse = diff * lightColor;
 
     // --- Blinn-Phong Specular ---
-    float specularStrength = 0.5;
     vec3 halfwayDir = normalize(lightDir + viewDir);
 
-    float shininess = 32.0;// higher = tighter highlight
     float spec = pow(max(dot(norm, halfwayDir), 0.0), shininess);
     vec3 specular = specularStrength * spec * lightColor;
 
@@ -44,5 +46,4 @@ void main()
     vec3 color = useTexture ? texture(texture1, TexCoord).rgb : baseColor;
     vec3 result = (ambient + diffuse + specular) * color;
     FragColor = vec4(result, 1.0);
-    FragColor = vec4(1, 0, 1, 1.0);
 }

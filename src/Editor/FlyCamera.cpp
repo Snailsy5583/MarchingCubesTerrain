@@ -10,39 +10,16 @@
 #include "glm/gtx/norm.inl"
 #include "imgui.h"
 
-FlyCameraControllerLayer::FlyCameraControllerLayer(FlyCamera *flyCamera)
-	: m_FlyCamera(flyCamera)
-{
-}
-bool FlyCameraControllerLayer::OnEvent(Engine::Event &e)
-{
-	Engine::EventDispatcher dispatcher(e);
-	if (dispatcher.Dispatch<Engine::MouseButtonPressedEvent>(
-			BIND_EVENT_FUNC(FlyCamera::OnMouseButtonPressed, m_FlyCamera)))
-		return true;
-	if (dispatcher.Dispatch<Engine::MouseButtonReleasedEvent>(
-			BIND_EVENT_FUNC(FlyCamera::OnMouseButtonReleased, m_FlyCamera)))
-		return true;
-	if (dispatcher.Dispatch<Engine::MouseMovedEvent>(
-			BIND_EVENT_FUNC(FlyCamera::OnMouseMoved, m_FlyCamera)))
-		return true;
-	if (dispatcher.Dispatch<Engine::KeyboardKeyPressedEvent>(
-			BIND_EVENT_FUNC(FlyCamera::OnKeyPressed, m_FlyCamera)))
-		return true;
-	if (dispatcher.Dispatch<Engine::KeyboardKeyReleasedEvent>(
-			BIND_EVENT_FUNC(FlyCamera::OnKeyReleased, m_FlyCamera)))
-		return true;
-	return false;
-}
 
 FlyCamera::FlyCamera(float aspect, float speed /* = 5.f*/, float sens /* = 1*/)
-	: Camera(Perspective, {0, 0, -10}, {1, 0, 0, 0}, aspect, .01, 10000, 90),
-	  m_FlyCameraController(this), m_FlySpeed(speed), m_Sensitivity(sens)
+	: Camera(Perspective, {0, 0, 10}, {1, 0, 0, 0}, aspect, .01, 10000, 90),
+	  m_FlySpeed(speed), m_Sensitivity(sens), m_FlyCameraController(this)
 {
 }
 
 void FlyCamera::Update(float dt)
 {
+	// update position
 	if (glm::length2(m_MoveDelta) < 0.01f) {
 		m_MoveDelta = {0, 0, 0};
 		m_Velocity = {0, 0, 0};
@@ -54,6 +31,7 @@ void FlyCamera::Update(float dt)
 	m_Velocity += m_Acceleration * m_FlySpeed * dt;
 	m_Position += m_Velocity * dt;
 
+	// update rotation
 	auto yaw =
 		glm::angleAxis(glm::radians(m_EulerAngles.y), glm::vec3(0, 1, 0));
 	auto pitch =
@@ -75,6 +53,8 @@ void FlyCamera::ImGuiExposeParameters()
 					 0.01f,
 					 100.0f);
 }
+
+//////////////////////////////////// Event Handler /////////////////////////////
 
 bool FlyCamera::OnMouseButtonPressed(const Engine::MouseButtonPressedEvent &e)
 {
@@ -144,4 +124,32 @@ bool FlyCamera::OnKeyReleased(const Engine::KeyboardKeyReleasedEvent &e)
 	default: return false;
 	}
 	return true;
+}
+
+////////////////////////// Layer ///////////////////////////////////////////////
+
+FlyCameraControllerLayer::FlyCameraControllerLayer(FlyCamera *flyCamera)
+	: m_FlyCamera(flyCamera)
+{
+}
+
+bool FlyCameraControllerLayer::OnEvent(Engine::Event &e)
+{
+	Engine::EventDispatcher dispatcher(e);
+	if (dispatcher.Dispatch<Engine::MouseButtonPressedEvent>(
+			BIND_EVENT_FUNC(FlyCamera::OnMouseButtonPressed, m_FlyCamera)))
+		return true;
+	if (dispatcher.Dispatch<Engine::MouseButtonReleasedEvent>(
+			BIND_EVENT_FUNC(FlyCamera::OnMouseButtonReleased, m_FlyCamera)))
+		return true;
+	if (dispatcher.Dispatch<Engine::MouseMovedEvent>(
+			BIND_EVENT_FUNC(FlyCamera::OnMouseMoved, m_FlyCamera)))
+		return true;
+	if (dispatcher.Dispatch<Engine::KeyboardKeyPressedEvent>(
+			BIND_EVENT_FUNC(FlyCamera::OnKeyPressed, m_FlyCamera)))
+		return true;
+	if (dispatcher.Dispatch<Engine::KeyboardKeyReleasedEvent>(
+			BIND_EVENT_FUNC(FlyCamera::OnKeyReleased, m_FlyCamera)))
+		return true;
+	return false;
 }

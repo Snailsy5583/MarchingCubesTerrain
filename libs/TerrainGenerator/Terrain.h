@@ -6,14 +6,17 @@
 #define TERRAINGENERATIONEDITOR_TERRAIN_H
 
 #include "Engine/GameObject.h"
+// #include "TerrainGenerator.h"
 #include <functional>
 
+
+struct ScalarFieldPoint;
 class Terrain : public Engine::GameObject
 {
 public:
 	Terrain(glm::vec3 size,
 			int resolution,
-			const std::vector<std::pair<glm::vec3, float>> &scalarField,
+			const std::vector<ScalarFieldPoint> &scalarField,
 			float threshold);
 
 	~Terrain() override = default;
@@ -31,7 +34,7 @@ private:
 	{ return x * m_Resolution * m_Resolution + y * m_Resolution + z; }
 
 private:
-	const std::vector<std::pair<glm::vec3, float>> &m_ScalarField;
+	const std::vector<ScalarFieldPoint> &m_ScalarField;
 	int m_Resolution;
 	glm::vec3 m_Size;
 	glm::vec3 m_Bounds[2];

@@ -7,18 +7,22 @@
 
 #include "Terrain.h"
 
+struct ScalarFieldPoint {
+	glm::vec3 position;
+	float scalar, hardness = 0;
+};
 class TerrainGenerator
 {
 public:
 	TerrainGenerator(glm::vec3 size, int resolution, float threshold);
 
 private:
-	float GetScalarFieldValue(glm::vec3 position);
+	ScalarFieldPoint GetScalarFieldPoint(glm::vec3 position);
 
 	void InitScalarField();
 
 private:
-	std::vector<std::pair<glm::vec3, float>> m_ScalarField;
+	std::vector<ScalarFieldPoint> m_ScalarField;
 	Terrain m_Terrain;
 };
 

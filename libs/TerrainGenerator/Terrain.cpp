@@ -4,9 +4,11 @@
 
 #include "Terrain.h"
 
+#include "TerrainGenerator.h"
+
 Terrain::Terrain(glm::vec3 size,
 				 int resolution,
-				 const std::vector<std::pair<glm::vec3, float>> &scalarField,
+				 const std::vector<ScalarFieldPoint> &scalarField,
 				 float threshold)
 	: GameObject(Engine::Mesh(), {0, 0, 0}, {1, 0, 0, 0}),
 	  m_Resolution(resolution), m_Bounds {-size / 2.f, size / 2.f},

@@ -15,7 +15,7 @@
 
 TerrainEditor::TerrainEditor()
 	: Application(1280, 720, "Terrain Editor"),
-	  m_TerrainGenerator(glm::vec3 {1, 1, 1}, 20, 0.5),
+	  m_TerrainGenerator(glm::vec3 {1, 1, 1}, 5, 0.5),
 	  m_Camera((float) m_MainWindow->GetWindowSize().x /
 			   m_MainWindow->GetWindowSize().y),
 	  shader(Engine::Shader::Compile("C:"
@@ -68,7 +68,7 @@ TerrainEditor::TerrainEditor()
 	shader.UnBind();
 
 	test = Engine::Mesh::ImportFromOBJ(
-		"C:\\Users\\r6awe\\Desktop\\blender\\chicken.obj",
+		"C:\\Users\\r6awe\\Desktop\\blender\\spot_triangulated_good.obj",
 		&shader);
 }
 
@@ -80,18 +80,21 @@ void TerrainEditor::Update(float dt)
 	shader.SetUniformVec("viewPos", m_Camera.GetPosition());
 	Engine::Renderer::SubmitObject(m_Camera, test);
 
+	ImGui_ImplOpenGL3_NewFrame();
+	ImGui_ImplGlfw_NewFrame();
+	ImGui::NewFrame();
 	{	 // Inspector Window
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui_ImplGlfw_NewFrame();
-		ImGui::NewFrame();
 		ImGui::Begin("Terrain Editor");
 
-		ImGui::Separator();
+		ImGui::SeparatorText("Camera");
 
 		m_Camera.ImGuiExposeParameters();
 
+		ImGui::SeparatorText("Misc");
+		ImGui::Text(std::to_string(1 / dt).c_str());
+
 		ImGui::End();
-		ImGui::Render();
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 }

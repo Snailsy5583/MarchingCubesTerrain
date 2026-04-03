@@ -3,13 +3,16 @@
 //
 
 #include "TerrainGenerator.h"
+
+#include "glm/gtc/noise.hpp"
 TerrainGenerator::TerrainGenerator(glm::vec3 size,
 								   int resolution,
 								   float threshold)
 	: m_Terrain(size, resolution, m_ScalarField, threshold)
 { InitScalarField(); }
 
-float TerrainGenerator::GetScalarFieldValue(glm::vec3 position) { return 0; }
+ScalarFieldPoint TerrainGenerator::GetScalarFieldPoint(glm::vec3 position)
+{ return {position, glm::simplex(position), 0}; }
 
 void TerrainGenerator::InitScalarField()
 {
@@ -21,9 +24,12 @@ void TerrainGenerator::InitScalarField()
 			for (int z = 0; z < m_Terrain.GetResolution(); z++) {
 				glm::vec3 position = m_Terrain.GetBounds()[0] + incr.x * x +
 									 incr.y * y + incr.z * z;
-				m_ScalarField.emplace_back(position,
-										   GetScalarFieldValue(position));
+				auto point = GetScalarFieldPoint(position);
+				m_ScalarField.push_back(point);
+				std::cout << point.scalar << ", ";
 			}
+			std::cout << std::endl;
 		}
+		std::cout << std::endl;
 	}
 }

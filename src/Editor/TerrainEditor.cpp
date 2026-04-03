@@ -30,6 +30,8 @@ TerrainEditor::TerrainEditor()
 {
 	m_LayerStack.Push(m_Camera.GetCameraControllerLayer());
 	glfwMaximizeWindow(m_MainWindow->GetGLFWWindow());
+
+	// ImGui setup
 	const float main_scale = ImGui_ImplGlfw_GetContentScaleForMonitor(
 		glfwGetPrimaryMonitor());	 // Valid on GLFW 3.3+ only
 	IMGUI_CHECKVERSION();
@@ -93,6 +95,11 @@ void TerrainEditor::Update(float dt)
 		ImGui::SeparatorText("Misc");
 		ImGui::Text(std::to_string(1 / dt).c_str());
 
+		ImGui::End();
+	}
+	{
+		ImGui::Begin("Dock Test");
+		ImGui::Text("Test");
 		ImGui::End();
 	}
 	ImGui::Render();

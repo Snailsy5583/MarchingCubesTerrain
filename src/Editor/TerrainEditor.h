@@ -13,6 +13,7 @@
 
 #include "TerrainGenerator/TerrainGenerator.h"
 
+#include <imgui.h>
 
 class TerrainEditor : public Engine::Application
 {

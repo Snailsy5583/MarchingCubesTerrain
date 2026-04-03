@@ -12,3 +12,7 @@
 	path = vendor/imgui
 	url = https://github.com/ocornut/imgui.git
 	branch = docking
+[submodule "libs/Engine"]
+	path = libs/Engine
+	url = https://github.com/Snailsy5583/Puffin.git
+	branch = master

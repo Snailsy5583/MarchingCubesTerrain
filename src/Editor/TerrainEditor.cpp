@@ -18,14 +18,7 @@ TerrainEditor::TerrainEditor()
 	  m_TerrainGenerator(glm::vec3 {1, 1, 1}, 5, 0.5),
 	  m_Camera((float) m_MainWindow->GetWindowSize().x /
 			   m_MainWindow->GetWindowSize().y),
-	  shader(Engine::Shader::Compile("C:"
-									 "\\Dev\\College\\4361\\FinalProject\\March"
-									 "ingCubesTerrain\\src\\Editor"
-									 "\\demo.vert",
-									 "C:"
-									 "\\Dev\\College\\4361\\FinalProject\\March"
-									 "ingCubesTerrain\\src\\Editor"
-									 "\\demo.frag"))
+	  shader(Engine::Shader::Compile("shaders/demo.vert", "shaders/demo.frag"))
 
 {
 	m_LayerStack.Push(m_Camera.GetCameraControllerLayer());
@@ -39,39 +32,24 @@ TerrainEditor::TerrainEditor()
 	ImGuiIO &io = ImGui::GetIO();
 	(void) io;
 	io.ConfigFlags |=
-		ImGuiConfigFlags_NavEnableKeyboard;	   // Enable Keyboard Controls
-	io.ConfigFlags |=
-		ImGuiConfigFlags_NavEnableGamepad;	  // Enable Gamepad Controls
+		ImGuiConfigFlags_NavEnableKeyboard |	// Enable Keyboard Controls
+		ImGuiConfigFlags_NavEnableGamepad |		// Enable Gamepad Controls
+		ImGuiConfigFlags_DockingEnable;
 
-	// Setup Dear ImGui style
 	ImGui::StyleColorsDark();
 	// ImGui::StyleColorsLight();
 
 	// Setup scaling
 	ImGuiStyle &style = ImGui::GetStyle();
-	style.ScaleAllSizes(
-		main_scale);	// Bake a fixed style scale. (until we have a solution
-						// for dynamic style scaling, changing this requires
-						// resetting Style + calling this again)
-	style.FontScaleDpi =
-		main_scale;	   // Set initial font scale. (in docking branch: using
-					   // io.ConfigDpiScaleFonts=true automatically overrides
-					   // this for every window depending on the current
-					   // monitor)
+	style.ScaleAllSizes(main_scale);
+	style.FontScaleDpi = main_scale;
 
 	// Setup Platform/Renderer backends
 	ImGui_ImplGlfw_InitForOpenGL(m_MainWindow->GetGLFWWindow(), true);
 	ImGui_ImplOpenGL3_Init("#version 330");
 
-	shader.Bind();
-	shader.SetUniformVec("lightPos", m_Camera.GetPosition());
-	shader.SetUniformVec("viewPos", m_Camera.GetPosition());
-	shader.SetUniformVec("lightColor", {1, 1, 1});
-	shader.UnBind();
-
-	test = Engine::Mesh::ImportFromOBJ(
-		"C:\\Users\\r6awe\\Desktop\\blender\\spot_triangulated_good.obj",
-		&shader);
+	test = Engine::Mesh::ImportFromOBJ("assets/spot_triangulated_good.obj",
+									   &shader);
 }
 
 void TerrainEditor::Update(float dt)
@@ -80,11 +58,15 @@ void TerrainEditor::Update(float dt)
 	shader.Bind();
 	shader.SetUniformVec("lightPos", m_Camera.GetPosition());
 	shader.SetUniformVec("viewPos", m_Camera.GetPosition());
+	shader.SetUniformVec("lightColor", {1, 1, 1});
 	Engine::Renderer::SubmitObject(m_Camera, test);
 
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
 	ImGui::NewFrame();
+	ImGui::DockSpaceOverViewport(0,
+								 nullptr,
+								 ImGuiDockNodeFlags_PassthruCentralNode);
 	{	 // Inspector Window
 		ImGui::Begin("Terrain Editor");
 
@@ -95,11 +77,6 @@ void TerrainEditor::Update(float dt)
 		ImGui::SeparatorText("Misc");
 		ImGui::Text(std::to_string(1 / dt).c_str());
 
-		ImGui::End();
-	}
-	{
-		ImGui::Begin("Dock Test");
-		ImGui::Text("Test");
 		ImGui::End();
 	}
 	ImGui::Render();

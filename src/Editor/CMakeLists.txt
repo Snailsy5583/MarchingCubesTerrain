@@ -22,3 +22,15 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ../../vendor/stb/stb
         ../../libs
 )
+
+add_custom_target(copy_shaders
+        COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different
+        "${CMAKE_CURRENT_SOURCE_DIR}/shaders"
+        "${CMAKE_CURRENT_BINARY_DIR}/shaders"
+)
+add_custom_target(copy_assets
+        COMMAND ${CMAKE_COMMAND} -E copy_directory_if_different
+        "${CMAKE_CURRENT_SOURCE_DIR}/assets"
+        "${CMAKE_CURRENT_BINARY_DIR}/assets"
+)
+add_dependencies(TerrainEditor copy_shaders copy_assets)

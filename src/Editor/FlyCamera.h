@@ -17,8 +17,8 @@ class FlyCameraControllerLayer : public Engine::Layer
 public:
 	FlyCameraControllerLayer(FlyCamera *flyCamera);
 
-	void OnAttach() override {}
-	void OnDetach() override {}
+	void OnAttach() override { }
+	void OnDetach() override { }
 	bool OnEvent(Engine::Event &e) override;
 
 private:
@@ -37,9 +37,9 @@ public:
 	void ImGuiExposeParameters();
 
 public:	   // Event Management
-	FlyCameraControllerLayer *GetCameraControllerLayer()
-	{ return &m_FlyCameraController; }
+	FlyCameraControllerLayer *GetLayer() { return &m_FlyCameraController; }
 
+private:
 	bool OnMouseButtonPressed(const Engine::MouseButtonPressedEvent &e);
 	bool OnMouseButtonReleased(const Engine::MouseButtonReleasedEvent &e);
 	bool OnMouseMoved(const Engine::MouseMovedEvent &e);
@@ -47,8 +47,8 @@ public:	   // Event Management
 	bool OnKeyReleased(const Engine::KeyboardKeyReleasedEvent &e);
 
 private:
-	glm::vec3 m_EulerAngles {0, 0, 0};
-	glm::vec3 m_MoveDelta, m_Acceleration, m_Velocity;
+	glm::vec3 m_EulerAngles {0};
+	glm::vec3 m_MoveDelta {0}, m_Acceleration {0}, m_Velocity {0};
 
 	float m_FlySpeed, m_Sensitivity;
 

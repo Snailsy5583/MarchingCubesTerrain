@@ -7,6 +7,7 @@ add_subdirectory(vendor/glad/glad)
 add_subdirectory(vendor/glfw)
 add_subdirectory(vendor/glm)
 add_subdirectory(vendor/imgui)
+add_subdirectory(vendor/tinyexpr)
 
 add_subdirectory(libs/Engine)
 add_subdirectory(libs/TerrainGenerator)

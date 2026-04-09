@@ -6,6 +6,7 @@
 #define PUFFINTEXTEDITOR_TERRAINEDITOR_H
 
 #include "FlyCamera.h"
+#include "ScalarFieldEditor.h"
 
 
 #include <Engine/Application.h>
@@ -13,17 +14,23 @@
 
 #include "TerrainGenerator/TerrainGenerator.h"
 
-#include <imgui.h>
-
 class TerrainEditor : public Engine::Application
 {
 public:
 	TerrainEditor();
 
+	void PollEvents() override;
+
 	void Update(float dt) override;
+
+	void Render(float dt);
+
+	void ImGuiRender(float dt);
+	void OnEvent(Engine::Event &e) override;
 
 private:
 	TerrainGenerator m_TerrainGenerator;
+	ScalarFieldEditor m_ScalarFieldEditor;
 	FlyCamera m_Camera;
 	Engine::Shader shader;
 	Engine::Mesh test;

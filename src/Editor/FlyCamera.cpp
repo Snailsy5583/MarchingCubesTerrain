@@ -11,9 +11,10 @@
 #include "imgui.h"
 
 
-FlyCamera::FlyCamera(float aspect, float speed /* = 5.f*/, float sens /* = 1*/)
+FlyCamera::FlyCamera(float aspect, float speed /* = 5.f*/, float sensitivity
+					 /* = 1*/)
 	: Camera(Perspective, {0, 0, 10}, {1, 0, 0, 0}, aspect, .01, 10000, 90),
-	  m_FlySpeed(speed), m_Sensitivity(sens), m_FlyCameraController(this)
+	  m_FlySpeed(speed), m_Sensitivity(sensitivity), m_FlyCameraController(this)
 {
 }
 
@@ -44,41 +45,42 @@ void FlyCamera::Update(float dt)
 
 void FlyCamera::ImGuiExposeParameters()
 {
-	ImGui::DragFloat3("Position", &m_Position[0]);
-	ImGui::DragFloat3("Euler Angles", &m_EulerAngles[0], 0.1f);
-	ImGui::DragFloat("Camera Speed", &m_FlySpeed, 0.01f, 0.01f, 100.0f);
-	ImGui::DragFloat("Camera Sensitivity",
-					 &m_Sensitivity,
-					 0.01f,
-					 0.01f,
-					 100.0f);
+	if (ImGui::TreeNode("Camera Settings")) {
+		ImGui::DragFloat3("Position", &m_Position[0]);
+		ImGui::DragFloat3("Euler Angles", &m_EulerAngles[0], 0.1f);
+		ImGui::DragFloat("Camera Speed", &m_FlySpeed, 0.01f, 0.01f, 100.0f);
+		ImGui::DragFloat(
+			"Camera Sensitivity", &m_Sensitivity, 0.01f, 0.01f, 100.0f);
+		ImGui::TreePop();
+	}
 }
 
 //////////////////////////////////// Event Handler /////////////////////////////
 
 bool FlyCamera::OnMouseButtonPressed(const Engine::MouseButtonPressedEvent &e)
 {
-	if (e.GetMouseButton() != GLFW_MOUSE_BUTTON_2) return false;
-	glfwSetInputMode(e.GetWindow().GetGLFWWindow(),
-					 GLFW_CURSOR,
-					 GLFW_CURSOR_DISABLED);
+	if (e.GetMouseButton() != GLFW_MOUSE_BUTTON_2)
+		return false;
+	glfwSetInputMode(
+		e.GetWindow().GetGLFWWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	m_IsMouseDown = true;
 	return true;
 }
 bool FlyCamera::OnMouseButtonReleased(const Engine::MouseButtonReleasedEvent &e)
 {
-	if (e.GetMouseButton() != GLFW_MOUSE_BUTTON_2) return false;
-	glfwSetInputMode(e.GetWindow().GetGLFWWindow(),
-					 GLFW_CURSOR,
-					 GLFW_CURSOR_NORMAL);
+	if (e.GetMouseButton() != GLFW_MOUSE_BUTTON_2)
+		return false;
+	glfwSetInputMode(
+		e.GetWindow().GetGLFWWindow(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 
 	m_IsMouseDown = false;
 	return true;
 }
 bool FlyCamera::OnMouseMoved(const Engine::MouseMovedEvent &e)
 {
-	if (!m_IsMouseDown) return false;
+	if (!m_IsMouseDown)
+		return false;
 
 	const glm::vec2 delta = e.GetDelta();
 	m_EulerAngles.x += glm::degrees(delta.y);

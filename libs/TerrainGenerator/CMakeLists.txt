@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(__src
         TerrainGenerator.h TerrainGenerator.cpp
-        Terrain.h Terrain.cpp)
+        Terrain.h Terrain.cpp
+        Erosion.cpp
+        Erosion.h)
 
 add_library(${PROJECT_NAME} ${__src})
 

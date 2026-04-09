@@ -6,12 +6,15 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(${PROJECT_NAME}
         main.cpp TerrainEditor.cpp TerrainEditor.h
         FlyCamera.cpp
-        FlyCamera.h)
+        FlyCamera.h
+        ScalarFieldEditor.cpp
+        ScalarFieldEditor.h)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
         Engine
         TerrainGenerator
         ImGui
+        tinyexpr
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -20,6 +23,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ../../vendor/glm/
         ../../vendor/imgui/
         ../../vendor/stb/stb
+        ../../vendor/tinyexpr
         ../../libs
 )
 

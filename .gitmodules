@@ -16,3 +16,6 @@
 	path = libs/Engine
 	url = https://github.com/Snailsy5583/Puffin.git
 	branch = master
+[submodule "vendor/tinyexpr"]
+	path = vendor/tinyexpr
+	url = https://github.com/Snailsy5583/tinyexpr.git

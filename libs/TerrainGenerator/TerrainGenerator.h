@@ -11,18 +11,23 @@ struct ScalarFieldPoint {
 	glm::vec3 position;
 	float scalar, hardness = 0;
 };
+
 class TerrainGenerator
 {
 public:
 	TerrainGenerator(glm::vec3 size, int resolution, float threshold);
 
+public:
+	Terrain &GetTerrain() { return m_Terrain; }
+
 private:
-	ScalarFieldPoint GetScalarFieldPoint(glm::vec3 position);
+	float GetScalarFieldValue(glm::vec3 position);
 
 	void InitScalarField();
 
+
 private:
-	std::vector<ScalarFieldPoint> m_ScalarField;
+	ScalarField m_ScalarField;
 	Terrain m_Terrain;
 };
 

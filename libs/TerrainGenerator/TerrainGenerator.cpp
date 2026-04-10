@@ -13,7 +13,10 @@ TerrainGenerator::TerrainGenerator(glm::vec3 size,
 	: m_Terrain(size, resolution, m_ScalarField, threshold)
 // {
 // }
-{ InitScalarField(); }
+{
+	InitScalarField();
+	m_Terrain.MarchingCubes();
+}
 
 float TerrainGenerator::GetScalarFieldValue(glm::vec3 position)
 { return glm::simplex(position); }

@@ -50,6 +50,8 @@ TerrainEditor::TerrainEditor()
 	test = Engine::Mesh::ImportFromOBJ("assets/spot_triangulated_good.obj",
 									   &shader);
 
+	m_TerrainGenerator.GetTerrain().mesh.renderObj.shader = &shader;
+
 	// Setup layer stack
 	m_LayerStack.Push(m_Camera.GetLayer());
 	m_LayerStack.Push(m_ScalarFieldEditor.GetLayer());
@@ -84,8 +86,9 @@ void TerrainEditor::Render(float dt)
 	shader.SetUniformVec("viewPos", m_Camera.GetPosition());
 	shader.SetUniformVec("lightColor", {1, 1, 1});
 	shader.Unbind();
-	Engine::Renderer::SubmitObject(m_Camera, test);
-
+	m_TerrainGenerator.GetTerrain().Render();
+	Engine::Renderer::SubmitObject(m_Camera, m_TerrainGenerator.GetTerrain().mesh);
+	//for (auto vertex : m_TerrainGenerator.GetTerrain().mesh.vertices) std::cout << vertex.x << ", " << vertex.y << ", " << vertex.z   << std::endl;
 	ImGuiRender(dt);
 }
 

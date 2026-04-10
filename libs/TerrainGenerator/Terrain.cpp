@@ -7,6 +7,8 @@
 #include "TerrainGenerator.h"
 #include "glm/gtx/norm.inl"
 
+#include <map>
+
 Terrain::Terrain(glm::vec3 size,
 				 int resolution,
 				 ScalarField &scalarField,
@@ -15,9 +17,123 @@ Terrain::Terrain(glm::vec3 size,
 	  m_Resolution(resolution - 1), m_Bounds {-size / 2.f, size / 2.f},
 	  m_Size(size), m_Threshold(threshold), m_ScalarField {scalarField}
 {
+	mesh.usage = Engine::Mesh::Dynamic;
 }
 
-void Terrain::MarchingCubes() { }
+int Terrain::calculate_cube_index(std::vector<int> &cell, float isovalue)
+{
+    int cubeIndex = 0;
+    for (int i = 0; i < 8; i++)
+        if (m_ScalarField[cell[i]].scalar < isovalue) cubeIndex |= (1 << i);
+    return cubeIndex;
+}
+
+
+std::vector<glm::vec3> Terrain::get_intersection_points(std::vector<int> &cell,
+								  float isovalue)
+{
+    std::vector<glm::vec3> intersections (12);
+
+    int cubeIndex = calculate_cube_index(cell, isovalue);
+    int intersectionsKey = edgeTable[cubeIndex];
+
+    int idx = 0;
+    while (intersectionsKey)
+    {
+        if (intersectionsKey&1)
+        {
+
+
+        	int v1 = edgeToVertices[idx].first, v2 = edgeToVertices[idx].second;
+        	ScalarFieldPoint p1 = m_ScalarField[cell[v1]], p2 = m_ScalarField[cell[v2]];
+
+        	glm::vec3 intersectionPoint = interpolate(p1.position, p1.scalar,
+													p2.position, p2.scalar, isovalue);
+        	intersections[idx] = intersectionPoint;
+        }
+        idx++;
+        intersectionsKey >>= 1;
+    }
+
+
+    return intersections;
+}
+
+glm::vec3 Terrain::interpolate(glm::vec3& v1, float val1, glm::vec3& v2, float val2, float isovalue)
+{
+    glm::vec3 interpolated;
+    float mu = (isovalue - val1) / (val2 - val1);
+
+    interpolated.x = mu*(v2.x - v1.x) + v1.x;
+    interpolated.y = mu*(v2.y - v1.y) + v1.y;
+    interpolated.z = mu*(v2.z - v1.z) + v1.z;
+
+	auto vertex = v1;
+	/*std::cout << vertex.x << ", " << vertex.y << ", " << vertex.z   << std::endl;
+	 vertex = v2;
+	std::cout << vertex.x << ", " << vertex.y << ", " << vertex.z   << std::endl;
+	std::cout << val1 << ", " << val2 << ", " << isovalue << " ||| " << mu << std::endl;
+	vertex = interpolated;
+	std::cout << vertex.x << ", " << vertex.y << ", " << vertex.z   << std::endl;
+	std::cout << std::endl<< std::endl<< std::endl << std::endl;*/
+    return interpolated;
+}
+
+void Terrain::MarchingCubes()
+{
+	glm::vec3 max = glm::vec3(m_Resolution);
+	std::vector<unsigned int> indices;
+	std::vector<glm::vec3> vertices;
+	std::vector<glm::vec3> normals;
+	std::vector<glm::vec2> texCoords;
+
+	for (int i = 0; i + 1 < max.x; i++) {
+		for (int j = 0; j + 1 < max.y; j++)
+		{
+			for (int k = 0; k + 1 < max.z; k++)
+			{
+				float x = i, y = j, z = k;
+				// cell ordered according to convention in referenced website
+				int index = GetIndex(x,y,z);
+				std::vector<int> cell = {
+					index, index + m_Resolution * m_Resolution,
+					index + m_Resolution * m_Resolution + 1, index + 1,
+					index + m_Resolution, index + m_Resolution * m_Resolution + m_Resolution,
+					index + m_Resolution * m_Resolution + m_Resolution + 1, index + m_Resolution + 1
+				};
+
+				// Get the indices in the vertices vector of the vertices we've already created from previous cells
+
+
+				int cubeIndex = calculate_cube_index(cell, m_Threshold);
+				std::vector<glm::vec3> intersections = get_intersection_points(
+					cell, m_Threshold);
+
+				std::vector<int> intersectionIndices = {-1,-1,-1,-1, -1,-1,-1,-1, -1,-1,-1,-1};
+
+				for (int idx = 0; triangleTable[cubeIndex][idx] != -1; idx++) {
+					int vertexId = triangleTable[cubeIndex][idx];
+					if (intersectionIndices[vertexId] == -1) {
+						vertices.push_back(intersections[vertexId]);
+						normals.emplace_back(0,0,1);
+						texCoords.emplace_back(0,0);
+						intersectionIndices[vertexId] = vertices.size()-1;
+					}
+					indices.push_back(intersectionIndices[vertexId]);
+
+				}
+
+			}
+		}
+	}
+
+	mesh.vertices = vertices;
+	//for (auto vertex : vertices) std::cout << vertex.x << ", " << vertex.y << ", " << vertex.z   << std::endl;
+	mesh.normals = normals;
+	mesh.texCoords = texCoords;
+	mesh.indices = indices;
+	mesh.UpdateMesh();
+}
 
 glm::vec3 rayCast(double xpos,
 				  double ypos,

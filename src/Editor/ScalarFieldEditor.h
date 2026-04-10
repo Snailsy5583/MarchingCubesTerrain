@@ -124,12 +124,12 @@ public:
 
 private:
 	void ActionRaiseLower(float dt,
-						  const Terrain &terrain,
+						  Terrain &terrain,
 						  ScalarField *scalarField,
 						  glm::vec3 center,
 						  const glm::vec3 brushBounds[2]);
 	void ActionSmooth(float dt,
-					  const Terrain &terrain,
+					  Terrain &terrain,
 					  const ScalarField *scalarField,
 					  glm::vec3 center,
 					  const glm::vec3 brushBounds[2]);
@@ -157,6 +157,9 @@ private:
 	glm::vec2 m_MousePos {}, m_WindowSize {};
 
 	Brush m_Brush;
+	long long m_ErosionIterations = 100;
+	float m_ErosionWeight = 0;
+	bool m_ErodeWhole = false;
 };
 
 

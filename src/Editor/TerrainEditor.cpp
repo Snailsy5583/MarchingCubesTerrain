@@ -15,10 +15,10 @@
 
 TerrainEditor::TerrainEditor()
 	: Application(1280, 720, "Terrain Editor"),
-	  m_TerrainGenerator(glm::vec3 {100, 100, 100}, 100, 0.5),
 	  m_Camera((float) m_MainWindow->GetWindowSize().x /
 			   (float) m_MainWindow->GetWindowSize().y),
-	  shader(Engine::Shader::Compile("shaders/demo.vert", "shaders/demo.frag"))
+	  shader(Engine::Shader::Compile("shaders/demo.vert", "shaders/demo.frag")),
+	  m_TerrainGenerator(glm::vec3 {50, 50, 50}, 10, 0.0, &shader)
 
 {
 	// ImGui setup
@@ -47,10 +47,7 @@ TerrainEditor::TerrainEditor()
 	ImGui_ImplGlfw_InitForOpenGL(m_MainWindow->GetGLFWWindow(), true);
 	ImGui_ImplOpenGL3_Init("#version 330");
 
-	test = Engine::Mesh::ImportFromOBJ("assets/spot_triangulated_good.obj",
-									   &shader);
-
-	m_TerrainGenerator.GetTerrain().mesh.renderObj.shader = &shader;
+	test = Engine::Mesh("assets/spot_triangulated_good.obj", &shader);
 
 	// Setup layer stack
 	m_LayerStack.Push(m_Camera.GetLayer());
@@ -86,9 +83,13 @@ void TerrainEditor::Render(float dt)
 	shader.SetUniformVec("viewPos", m_Camera.GetPosition());
 	shader.SetUniformVec("lightColor", {1, 1, 1});
 	shader.Unbind();
-	m_TerrainGenerator.GetTerrain().Render();
-	Engine::Renderer::SubmitObject(m_Camera, m_TerrainGenerator.GetTerrain().mesh);
-	//for (auto vertex : m_TerrainGenerator.GetTerrain().mesh.vertices) std::cout << vertex.x << ", " << vertex.y << ", " << vertex.z   << std::endl;
+	// m_TerrainGenerator.GetTerrain().Render();
+	// Engine::Renderer::SubmitObject(m_Camera, test);
+	Engine::Renderer::SubmitObject(m_Camera,
+								   m_TerrainGenerator.GetTerrain().m_Mesh);
+	// for (auto vertex : m_TerrainGenerator.GetTerrain().mesh.vertices)
+	// std::cout << vertex.x << ", " << vertex.y << ", " << vertex.z   <<
+	// std::endl;
 	ImGuiRender(dt);
 }
 

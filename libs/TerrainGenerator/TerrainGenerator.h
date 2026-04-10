@@ -15,7 +15,10 @@ struct ScalarFieldPoint {
 class TerrainGenerator
 {
 public:
-	TerrainGenerator(glm::vec3 size, int resolution, float threshold);
+	TerrainGenerator(glm::vec3 size,
+					 int resolution,
+					 float threshold,
+					 Engine::Shader *shader);
 
 public:
 	Terrain &GetTerrain() { return m_Terrain; }

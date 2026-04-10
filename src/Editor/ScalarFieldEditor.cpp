@@ -8,6 +8,7 @@
 
 #include "Engine/Events/KeyboardEvents.h"
 #include "Engine/Events/MouseEvents.h"
+#include "TerrainGenerator/ErosionSimulationSystem.h"
 #include "glm/gtx/norm.hpp"
 #include "glm/gtx/string_cast.hpp"
 #include "imgui.h"
@@ -89,10 +90,18 @@ void ScalarFieldEditor::UpdateScalarFieldIfMouseDown(const float dt,
 													 const glm::mat4 &view,
 													 const glm::mat4 &proj)
 {
+	ScalarField *scalarField = terrain.GetScalarFieldPtr();
+	if (m_ErodeWhole) {
+		auto props =
+			ErosionSimulationSystem::GetInstance()->GetErosionSettings();
+		props.iterations = m_ErosionIterations;
+		props.weight = m_ErosionWeight;
+		ErosionSimulationSystem::GetInstance()->ErodeWhole(scalarField);
+		return;
+	}
 	if (!m_IsMouseDown)
 		return;
 
-	ScalarField *scalarField = terrain.GetScalarFieldPtr();
 	const int nearestSFPIndex = terrain.GetNearestScalarFieldPointIndex(
 		m_MousePos, m_WindowSize, view, proj, m_Brush.m_MaxDistance);
 	if (nearestSFPIndex == -1) {
@@ -123,7 +132,7 @@ void ScalarFieldEditor::UpdateScalarFieldIfMouseDown(const float dt,
 }
 
 void ScalarFieldEditor::ActionRaiseLower(const float dt,
-										 const Terrain &terrain,
+										 Terrain &terrain,
 										 ScalarField *scalarField,
 										 const glm::vec3 center,
 										 const glm::vec3 brushBounds[2])
@@ -145,10 +154,11 @@ void ScalarFieldEditor::ActionRaiseLower(const float dt,
 			}
 		}
 	}
+	terrain.MarchingCubes();
 }
 
 void ScalarFieldEditor::ActionSmooth(float dt,
-									 const Terrain &terrain,
+									 Terrain &terrain,
 									 const ScalarField *scalarField,
 									 const glm::vec3 center,
 									 const glm::vec3 brushBounds[2])
@@ -177,6 +187,7 @@ void ScalarFieldEditor::ActionSmooth(float dt,
 			}
 		}
 	}
+	terrain.MarchingCubes();
 }
 
 void ScalarFieldEditor::ActionErode(float dt,
@@ -185,6 +196,14 @@ void ScalarFieldEditor::ActionErode(float dt,
 									glm::vec3 center,
 									const glm::vec3 brushBounds[2])
 {
+	ErodeProps props;
+	props.maxDist = m_Brush.m_BrushSize;
+	props.waterOriginBounds[0] = brushBounds[0];
+	props.waterOriginBounds[1] = brushBounds[1];
+	props.weight = m_ErosionWeight;
+	props.iter = m_ErosionIterations;
+
+	ErosionSimulationSystem::GetInstance()->Erode(scalarField, props);
 }
 
 void ScalarFieldEditor::ImGuiExposeParameters()
@@ -195,6 +214,17 @@ void ScalarFieldEditor::ImGuiExposeParameters()
 			m_Brush.ImGuiExposeParameters();
 			ImGui::TreePop();
 		}
+
+		if (m_Brush.m_ChosenAction == Brush::Erosion) {
+			if (ImGui::TreeNode("Erosion Settings")) {
+				ImGui::DragScalar(
+					"Iterations", ImGuiDataType_S64, &m_ErosionIterations, 1);
+				ImGui::DragFloat("Weight", &m_ErosionWeight, 0.001, 0, 1);
+				m_ErodeWhole = ImGui::Button("Erode Whole");
+				ImGui::TreePop();
+			}
+		}
+
 		ImGui::TreePop();
 	}
 }

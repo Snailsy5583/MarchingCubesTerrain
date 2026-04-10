@@ -9,10 +9,9 @@
 
 TerrainGenerator::TerrainGenerator(glm::vec3 size,
 								   int resolution,
-								   float threshold)
-	: m_Terrain(size, resolution, m_ScalarField, threshold)
-// {
-// }
+								   float threshold,
+								   Engine::Shader *shader)
+	: m_Terrain(size, resolution, m_ScalarField, threshold, shader)
 {
 	InitScalarField();
 	m_Terrain.MarchingCubes();

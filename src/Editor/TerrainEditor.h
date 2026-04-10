@@ -8,7 +8,6 @@
 #include "FlyCamera.h"
 #include "ScalarFieldEditor.h"
 
-
 #include <Engine/Application.h>
 #include <Engine/Renderer.h>
 

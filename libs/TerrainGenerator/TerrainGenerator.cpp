@@ -20,55 +20,34 @@ TerrainGenerator::TerrainGenerator(const glm::vec3 size,
 
 void TerrainGenerator::GenerateTerrain()
 {
-	// const glm::vec3 incr = m_Terrain.GetVoxelSize();
 	const auto r = m_Terrain.GetResolution();
-	Engine::glCheckError();
 	m_ScalarField.clear();
-	Engine::glCheckError();
 	m_ScalarField.resize(r * r * r, {});
-	Engine::glCheckError();
 
 	Engine::ComputeShader sfPopulator = Engine::ComputeShader::Compile(
 		glm::uvec3(r), "shaders/scalarFieldGen_FLAT.comp");
-	Engine::glCheckError();
 
 	sfPopulator.AttachTexture(std::make_unique<Engine::Texture3D>(
 		glm::uvec3(r), 4, GL_FLOAT, GL_RGBA32F, m_ScalarField.data()));
-	Engine::glCheckError();
 
 	sfPopulator.Bind();
-	Engine::glCheckError();
 	sfPopulator.p_Textures[0]->BindImage();
-	Engine::glCheckError();
 
 	sfPopulator.SetUniform("octaves", m_Octaves);
-	Engine::glCheckError();
 	sfPopulator.SetUniform("lacunarity", m_Lacunarity);
-	Engine::glCheckError();
 	sfPopulator.SetUniform("gain", m_Gain);
-	Engine::glCheckError();
 	sfPopulator.SetUniformVec("scale", m_Scale / m_Terrain.GetSize());
-	Engine::glCheckError();
 	sfPopulator.SetUniformVec("translate", m_Translate);
-	Engine::glCheckError();
 	sfPopulator.SetUniformVec("resolution",
 							  glm::vec3((float) m_Terrain.GetResolution()));
-	Engine::glCheckError();
 
 	sfPopulator.Dispatch();
-	Engine::glCheckError();
 	sfPopulator.Join();
-	Engine::glCheckError();
 	sfPopulator.Unbind();
-	Engine::glCheckError();
 
 	sfPopulator.p_Textures[0]->GetImage(m_ScalarField.data());
-	Engine::glCheckError();
 
-	// for (const auto &[scalar, gradient] : m_ScalarField) {
-	// std::cout << scalar << ", " << glm::to_string(gradient) << std::endl;
-	// }
-
+	m_Terrain.RecalculateGradients();
 	m_Terrain.MarchingCubes();
 	Engine::glCheckError();
 }

@@ -435,13 +435,6 @@ glm::vec3 Terrain::interpolate(const glm::vec3 &v1,
 	interpolated.y = mu * (v2.y - v1.y) + v1.y;
 	interpolated.z = mu * (v2.z - v1.z) + v1.z;
 
-	// const auto vertex = v1;
-	/*std::cout << vertex.x << ", " << vertex.y << ", " << vertex.z   <<
-	std::endl; vertex = v2; std::cout << vertex.x << ", " << vertex.y << ", " <<
-	vertex.z   << std::endl; std::cout << val1 << ", " << val2 << ", " <<
-	isovalue << " ||| " << mu << std::endl; vertex = interpolated; std::cout <<
-	vertex.x << ", " << vertex.y << ", " << vertex.z   << std::endl; std::cout
-	<< std::endl<< std::endl<< std::endl << std::endl;*/
 	return interpolated;
 }
 

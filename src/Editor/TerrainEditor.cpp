@@ -7,6 +7,7 @@
 #include "../../vendor/OBJLoader/OBJ_Loader.h"
 #include "Engine/Renderer.h"
 
+#include "Engine/ImGuiRenderer.h"
 #include "imgui.h"
 
 #include "backends/imgui_impl_glfw.h"
@@ -18,36 +19,11 @@ TerrainEditor::TerrainEditor()
 	  m_Camera((float) m_MainWindow->GetWindowSize().x /
 			   (float) m_MainWindow->GetWindowSize().y),
 	  shader(Engine::Shader::Compile("shaders/demo.vert", "shaders/demo.frag")),
-	  m_TerrainGenerator(glm::vec3 {50, 50, 50}, 10, 0.0, &shader)
+	  m_TerrainGenerator(glm::vec3 {10, 10, 10}, 30, 0.0, &shader),
+	  test("assets/spot_triangulated_good.obj", &shader, Engine::Mesh::Static)
 
 {
-	// ImGui setup
-	const float main_scale = ImGui_ImplGlfw_GetContentScaleForMonitor(
-		glfwGetPrimaryMonitor());	 // Valid on GLFW 3.3+ only
-	IMGUI_CHECKVERSION();
-	ImGui::CreateContext();
-	ImGuiIO &io = ImGui::GetIO();
-	(void) io;
-	io.ConfigFlags |=
-		ImGuiConfigFlags_NavEnableKeyboard |	// Enable Keyboard Controls
-		ImGuiConfigFlags_NavEnableGamepad |		// Enable Gamepad Controls
-		ImGuiConfigFlags_DockingEnable;
-	io.ConfigDockingAlwaysTabBar = true;
-	io.ConfigDockingNoDockingOver = true;
-
-	ImGui::StyleColorsDark();
-	// ImGui::StyleColorsLight();
-
-	// Setup scaling
-	ImGuiStyle &style = ImGui::GetStyle();
-	style.ScaleAllSizes(main_scale);
-	style.FontScaleDpi = main_scale;
-
-	// Setup Platform/Renderer backends
-	ImGui_ImplGlfw_InitForOpenGL(m_MainWindow->GetGLFWWindow(), true);
-	ImGui_ImplOpenGL3_Init("#version 330");
-
-	test = Engine::Mesh("assets/spot_triangulated_good.obj", &shader);
+	Engine::ImGuiRenderer::ImGuiInit(m_MainWindow->GetGLFWWindow());
 
 	// Setup layer stack
 	m_LayerStack.Push(m_Camera.GetLayer());
@@ -66,6 +42,7 @@ void TerrainEditor::PollEvents()
 
 void TerrainEditor::Update(float dt)
 {
+	Engine::glCheckError();
 	m_ScalarFieldEditor.UpdateScalarFieldIfMouseDown(
 		dt,
 		m_TerrainGenerator.GetTerrain(),
@@ -82,14 +59,12 @@ void TerrainEditor::Render(float dt)
 	shader.SetUniformVec("lightPos", m_Camera.GetPosition());
 	shader.SetUniformVec("viewPos", m_Camera.GetPosition());
 	shader.SetUniformVec("lightColor", {1, 1, 1});
+	shader.SetUniform("debugNormals", m_DebugNormals);
 	shader.Unbind();
-	// m_TerrainGenerator.GetTerrain().Render();
-	// Engine::Renderer::SubmitObject(m_Camera, test);
-	Engine::Renderer::SubmitObject(m_Camera,
-								   m_TerrainGenerator.GetTerrain().m_Mesh);
-	// for (auto vertex : m_TerrainGenerator.GetTerrain().mesh.vertices)
-	// std::cout << vertex.x << ", " << vertex.y << ", " << vertex.z   <<
-	// std::endl;
+
+	m_TerrainGenerator.GetTerrain().Render();
+
+	// Engine::ImGuiRenderer::RenderAll("Inspector", dt);
 	ImGuiRender(dt);
 }
 
@@ -98,13 +73,14 @@ void TerrainEditor::ImGuiRender(float dt)
 	ImGui::DockSpaceOverViewport(
 		0, nullptr, ImGuiDockNodeFlags_PassthruCentralNode);
 	{	 // Inspector Window
-		ImGui::Begin("Editor");
+		ImGui::Begin("Inspector");
+		m_TerrainGenerator.ImGuiRender(dt);
 
-		m_Camera.ImGuiExposeParameters();
-
-		m_ScalarFieldEditor.ImGuiExposeParameters();
+		m_Camera.ImGuiRender(dt);
+		m_ScalarFieldEditor.ImGuiRender(dt);
 
 		ImGui::SeparatorText("Misc");
+		ImGui::Checkbox("Debug Normals", &m_DebugNormals);
 		ImGui::Text("%f", (1 / dt));
 
 		ImGui::End();
@@ -116,7 +92,7 @@ void TerrainEditor::ImGuiRender(float dt)
 void TerrainEditor::OnEvent(Engine::Event &e)
 {
 	if (!ImGui::GetCurrentContext())
-		return;
+		Application::OnEvent(e);
 	if (const ImGuiIO &io = ImGui::GetIO(); !io.WantCaptureMouse)
 		Application::OnEvent(e);
 }

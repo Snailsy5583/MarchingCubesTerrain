@@ -8,11 +8,13 @@
 
 #include "Engine/Events/KeyboardEvents.h"
 #include "Engine/Events/MouseEvents.h"
-#include "TerrainGenerator/ErosionSimulationSystem.h"
+#include "TerrainGenerator/ErosionSystem.h"
 #include "glm/gtx/norm.hpp"
 #include "glm/gtx/string_cast.hpp"
 #include "imgui.h"
 #include "misc/cpp/imgui_stdlib.h"
+
+#include <algorithm>
 
 //////////////////////////////////// Brush /////////////////////////////////////
 
@@ -42,46 +44,49 @@ float Brush::GetWeightWithFalloff(const float dist)
 	return f * m_Weight;
 }
 
-void Brush::ImGuiExposeParameters()
+void Brush::ImGuiRender(float dt)
 {
-	const char *falloff[] = {
-		"Custom", "Constant", "Linear", "Quadratic", "Cubic", "Sine"};
-	const char *easing[] = {"In", "Out", "Both"};
-	const char *actions[] = {"Raise", "Lower", "Smooth", "Erosion"};
+	if (ImGui::TreeNode("Brush Settings")) {
+		const char *falloff[] = {
+			"Custom", "Constant", "Linear", "Quadratic", "Cubic", "Sine"};
+		const char *easing[] = {"In", "Out", "Both"};
+		const char *actions[] = {"Raise", "Lower", "Smooth", "Erosion"};
 
-	ImGui::DragFloat("Brush Size", &m_BrushSize, 0.1f);
-	ImGui::DragFloat("Weight", &m_Weight, 0.001f, -1, 1);
-	ImGui::DragFloat("Max Distance", &m_MaxDistance, 0.1f);
+		ImGui::DragFloat("Brush Size", &m_BrushSize, 0.1f);
+		ImGui::DragFloat("Weight", &m_Weight, 0.001f, -1, 1);
+		ImGui::DragFloat("Max Distance", &m_MaxDistance, 0.1f);
 
-	ImGui::Combo("Falloff", (int *) &m_Falloff, falloff, 6);
-	if (m_Falloff == Custom) {
-		ImGui::InputText("CustomFormula\nvars:\n\tx = distance from "
-						 "click origin\n\tsize = brush size",
-						 &m_CustomExprStr);
+		ImGui::Combo("Falloff", (int *) &m_Falloff, falloff, 6);
+		if (m_Falloff == Custom) {
+			ImGui::InputText("CustomFormula\nvars:\n\tx = distance from "
+							 "click origin\n\tsize = brush size",
+							 &m_CustomExprStr);
 
-		if (ImGui::Button("Compile")) {
-			std::cout << m_CustomExprStr << std::endl;
-			CompileCustomExpr();
-			ImGui::OpenPopup("CompilePopup");
+			if (ImGui::Button("Compile")) {
+				std::cout << m_CustomExprStr << std::endl;
+				CompileCustomExpr();
+				ImGui::OpenPopup("CompilePopup");
+			}
+
+			if (ImGui::BeginPopup("CompilePopup")) {
+				ImGui::Text(m_CustomExpr == nullptr ? "Formula Compile Error."
+													: "Compile success!");
+				ImGui::EndPopup();
+			}
 		}
 
-		if (ImGui::BeginPopup("CompilePopup")) {
-			ImGui::Text(m_CustomExpr == nullptr ? "Formula Compile Error."
-												: "Compile success!");
-			ImGui::EndPopup();
-		}
+		else if (m_Falloff != Constant && m_Falloff != Linear)
+			ImGui::Combo("Easing Type", (int *) &m_EasingType, easing, 3);
+
+		ImGui::Combo("Action", (int *) &m_ChosenAction, actions, 4);
+		ImGui::TreePop();
 	}
-
-	else if (m_Falloff != Constant && m_Falloff != Linear)
-		ImGui::Combo("Easing Type", (int *) &m_EasingType, easing, 3);
-
-	ImGui::Combo("Action", (int *) &m_ChosenAction, actions, 4);
 }
 
 /////////////////////////// Scalar Field Editor ////////////////////////////////
 
 ScalarFieldEditor::ScalarFieldEditor()
-	: m_Layer(this), m_Brush(1, .1, 10, Brush::Linear, Brush::Both)
+	: m_Layer(this), m_Brush(1, .5, 1000, Brush::Cubic, Brush::Both)
 {
 }
 
@@ -92,40 +97,39 @@ void ScalarFieldEditor::UpdateScalarFieldIfMouseDown(const float dt,
 {
 	ScalarField *scalarField = terrain.GetScalarFieldPtr();
 	if (m_ErodeWhole) {
-		auto props =
-			ErosionSimulationSystem::GetInstance()->GetErosionSettings();
-		props.iterations = m_ErosionIterations;
-		props.weight = m_ErosionWeight;
-		ErosionSimulationSystem::GetInstance()->ErodeWhole(scalarField);
+		ErosionSystem::GetInstance()->ErodeWhole(&terrain);
 		return;
 	}
 	if (!m_IsMouseDown)
 		return;
 
-	const int nearestSFPIndex = terrain.GetNearestScalarFieldPointIndex(
-		m_MousePos, m_WindowSize, view, proj, m_Brush.m_MaxDistance);
-	if (nearestSFPIndex == -1) {
-		std::cout << "not near anything" << std::endl;
-		return;
-	}
 
-	const ScalarFieldPoint center = (*scalarField)[nearestSFPIndex];
-	const glm::vec3 brushBounds[2] = {
-		terrain.GetNearestGridPoint(center.position -
+	const int nearestSFPIndex = terrain.RayCastFromMousePos(
+		m_MousePos, view, proj, m_Brush.m_MaxDistance);
+	if (nearestSFPIndex == -1)
+		return;
+
+	auto centerPos = terrain.Index2Pos(nearestSFPIndex);
+	glm::vec3 line[2] = {view[3], centerPos};
+	Engine::Renderer::SubmitObject(
+		Engine::Renderer::GenLine(line, 1, Engine::Shader::p_ShaderList[0])
+			.get());
+
+	const glm::ivec3 brushBounds[2] = {
+		terrain.GetNearestGridPoint(centerPos -
 									glm::vec3(m_Brush.m_BrushSize / 2)),
-		terrain.GetNearestGridPoint(center.position +
+		terrain.GetNearestGridPoint(centerPos +
 									glm::vec3(m_Brush.m_BrushSize / 2))};
 	switch (m_Brush.m_ChosenAction) {
 	case Brush::Raise:
 	case Brush::Lower:
-		ActionRaiseLower(
-			dt, terrain, scalarField, center.position, brushBounds);
+		ActionRaiseLower(dt, terrain, scalarField, centerPos, brushBounds);
 		break;
 	case Brush::Smooth:
-		ActionSmooth(dt, terrain, scalarField, center.position, brushBounds);
+		ActionSmooth(dt, terrain, scalarField, centerPos, brushBounds);
 		break;
 	case Brush::Erosion:
-		ActionErode(dt, terrain, scalarField, center.position, brushBounds);
+		ActionErode(dt, terrain, scalarField, centerPos, brushBounds);
 		break;
 	default: break;
 	}
@@ -135,58 +139,84 @@ void ScalarFieldEditor::ActionRaiseLower(const float dt,
 										 Terrain &terrain,
 										 ScalarField *scalarField,
 										 const glm::vec3 center,
-										 const glm::vec3 brushBounds[2])
+										 const glm::ivec3 brushBounds[2])
 {
 	for (int x = brushBounds[0].x; x <= brushBounds[1].x; x++) {
 		for (int y = brushBounds[0].y; y <= brushBounds[1].y; y++) {
 			for (int z = brushBounds[0].z; z <= brushBounds[1].z; z++) {
-				auto &point = (*scalarField)[terrain.GetIndex(x, y, z)];
-				const float dist = glm::distance2(center, point.position);
+				auto i = terrain.GetIndex(x, y, z);
+				auto &point = (*scalarField)[i];
+				const float dist = glm::distance(center, terrain.Index2Pos(i));
 
-				if (dist > m_Brush.m_BrushSize * m_Brush.m_BrushSize)
+				if (dist > m_Brush.m_BrushSize)
 					continue;
 
 				const float incr =
-					-m_Brush.GetWeightWithFalloff(dist) * dt *
-					(m_Brush.m_ChosenAction == Brush::Raise ? 1 : -1);
+					m_Brush.GetWeightWithFalloff(dist) * dt *
+					(m_Brush.m_ChosenAction == Brush::Raise ? 1.f : -1.f);
 
-				point.scalar = std::clamp(point.scalar + incr, 0.0f, 1.0f);
+				point.scalar = std::clamp(point.scalar + incr, -1.0f, 1.0f);
 			}
 		}
 	}
+	terrain.RecalculateGradients();
 	terrain.MarchingCubes();
 }
 
 void ScalarFieldEditor::ActionSmooth(float dt,
 									 Terrain &terrain,
-									 const ScalarField *scalarField,
+									 ScalarField *scalarField,
 									 const glm::vec3 center,
-									 const glm::vec3 brushBounds[2])
+									 const glm::ivec3 brushBounds[2])
 {
-	float avgScalar = 0;
-	int numPoints = 0;
-	for (int x = brushBounds[0].x; x <= brushBounds[1].x; x++) {
-		for (int y = brushBounds[0].y; y <= brushBounds[1].y; y++) {
-			for (int z = brushBounds[0].z; z <= brushBounds[1].z; z++) {
-				const auto p = (*scalarField)[terrain.GetIndex(x, y, z)];
-				avgScalar += p.scalar;
-				numPoints++;
-			}
-		}
-	}
-	avgScalar /= numPoints;
+	std::vector<float> originalScalars(scalarField->size());
+	for (size_t i = 0; i < scalarField->size(); ++i)
+		originalScalars[i] = (*scalarField)[i].scalar;
 
-	// lerp points to avgScalar by brush weight with falloff
 	for (int x = brushBounds[0].x; x <= brushBounds[1].x; x++) {
 		for (int y = brushBounds[0].y; y <= brushBounds[1].y; y++) {
 			for (int z = brushBounds[0].z; z <= brushBounds[1].z; z++) {
-				auto p = (*scalarField)[terrain.GetIndex(x, y, z)];
-				const auto w = m_Brush.GetWeightWithFalloff(
-					glm::distance(center, p.position));
-				p.scalar = p.scalar * (1 - w) + avgScalar * w;
+				const int i = terrain.GetIndex(x, y, z);
+				const float dist = glm::distance(center, terrain.Index2Pos(i));
+				if (dist > m_Brush.m_BrushSize)
+					continue;
+
+				float neighborAvg = 0.0f;
+				int neighborCount = 0;
+				for (int dx = -1; dx <= 1; ++dx) {
+					for (int dy = -1; dy <= 1; ++dy) {
+						for (int dz = -1; dz <= 1; ++dz) {
+							const int sampleX = std::clamp(
+								x + dx, 0, terrain.GetResolution() - 1);
+							const int sampleY = std::clamp(
+								y + dy, 0, terrain.GetResolution() - 1);
+							const int sampleZ = std::clamp(
+								z + dz, 0, terrain.GetResolution() - 1);
+							neighborAvg += originalScalars[terrain.GetIndex(
+								sampleX, sampleY, sampleZ)];
+							neighborCount++;
+						}
+					}
+				}
+				neighborAvg /= (float) neighborCount;
+
+				const float currentScalar = originalScalars[i];
+				const float brushWeight = m_Brush.GetWeightWithFalloff(dist);
+				const float surfaceWeight =
+					1.0f -
+					std::min(std::abs(currentScalar - terrain.GetThreshold()),
+							 1.0f);
+				const float blend = std::clamp(
+					brushWeight * surfaceWeight * dt * 8.0f, 0.0f, 1.0f);
+
+				(*scalarField)[i].scalar = std::clamp(
+					currentScalar + (neighborAvg - currentScalar) * blend,
+					-1.0f,
+					1.0f);
 			}
 		}
 	}
+	terrain.RecalculateGradients();
 	terrain.MarchingCubes();
 }
 
@@ -194,56 +224,74 @@ void ScalarFieldEditor::ActionErode(float dt,
 									Terrain &terrain,
 									ScalarField *scalarField,
 									glm::vec3 center,
-									const glm::vec3 brushBounds[2])
+									const glm::ivec3 brushBounds[2])
 {
-	ErodeProps props;
-	props.maxDist = m_Brush.m_BrushSize;
-	props.waterOriginBounds[0] = brushBounds[0];
-	props.waterOriginBounds[1] = brushBounds[1];
-	props.weight = m_ErosionWeight;
-	props.iter = m_ErosionIterations;
+	ErodeProps props {};
+	props.dropletOriginBounds[0] =
+		terrain.Index2Pos(terrain.GetIndex(brushBounds[0]));
+	props.dropletOriginBounds[1] =
+		terrain.Index2Pos(terrain.GetIndex(brushBounds[1]));
+	props.dropletOriginBounds[0].y = props.dropletOriginBounds[1].y;
 
-	ErosionSimulationSystem::GetInstance()->Erode(scalarField, props);
+	ErosionSystem::GetInstance()->Erode(&terrain, props);
 }
 
-void ScalarFieldEditor::ImGuiExposeParameters()
+void ScalarFieldEditor::ImGuiRender(float dt)
 {
-	if (ImGui::TreeNode("Terrain Editor Settings")) {
-		// ImGui::TreePush("Terrain Editor Settings");
-		if (ImGui::TreeNode("Brush Settings")) {
-			m_Brush.ImGuiExposeParameters();
-			ImGui::TreePop();
-		}
-
+	if (ImGui::TreeNode("Painter")) {
+		m_Brush.ImGuiRender(dt);
 		if (m_Brush.m_ChosenAction == Brush::Erosion) {
 			if (ImGui::TreeNode("Erosion Settings")) {
+				ErosionSettings &settings =
+					ErosionSystem::GetInstance()->p_Settings;
 				ImGui::DragScalar(
-					"Iterations", ImGuiDataType_S64, &m_ErosionIterations, 1);
-				ImGui::DragFloat("Weight", &m_ErosionWeight, 0.001, 0, 1);
+					"Iterations", ImGuiDataType_S64, &settings.drops, 1);
+				ImGui::DragFloat("Droplet Carry Capacity Factor",
+								 &settings.dropletCarryCapacityFactor,
+								 0.1);
+				ImGui::DragFloat("Droplet Evaporation Speed",
+								 &settings.dropletEvaporationSpeed,
+								 0.0001,
+								 0,
+								 1);
+				ImGui::DragFloat("Droplet Erosion Speed",
+								 &settings.dropletErosionWeight,
+								 0.001);
+				ImGui::DragFloat("Droplet Deposition Speed",
+								 &settings.dropletDepositionWeight,
+								 0.001);
+				ImGui::DragFloat(
+					"Droplet Inertia", &settings.dropletInertia, 0.001);
+				ImGui::DragFloat("Gravity", &settings.gravity, 0.1);
+				ImGui::DragInt("Max Drop Iterations", &settings.maxDropIter, 1);
+				ImGui::DragFloat("Slope Fall Threshold",
+								 &settings.slopeOverhangThresh,
+								 .0001);
+				ImGui::DragFloat(
+					"Flat Slope Thresh", &settings.slopeFlatThresh, .0001);
+
 				m_ErodeWhole = ImGui::Button("Erode Whole");
 				ImGui::TreePop();
 			}
 		}
-
 		ImGui::TreePop();
 	}
 }
 
-bool ScalarFieldEditor::OnMouseButtonPressed(Engine::MouseButtonPressedEvent &e)
+bool ScalarFieldEditor::OnMouseButtonPressed(
+	const Engine::MouseButtonPressedEvent &e)
 {
 	if (e.GetMouseButton() != GLFW_MOUSE_BUTTON_1)
 		return false;
 	m_IsMouseDown = true;
-	int x, y;
-	e.GetMousePixelPos(x, y);
+	float x, y;
+	e.GetMousePos(x, y);
 	m_MousePos = glm::fvec2(x, y);
-
-	m_WindowSize = e.GetWindow().GetWindowSize();
 	return true;
 }
 
-bool
-ScalarFieldEditor::OnMouseButtonReleased(Engine::MouseButtonReleasedEvent &e)
+bool ScalarFieldEditor::OnMouseButtonReleased(
+	const Engine::MouseButtonReleasedEvent &e)
 {
 	if (e.GetMouseButton() != GLFW_MOUSE_BUTTON_1)
 		return false;
@@ -251,19 +299,15 @@ ScalarFieldEditor::OnMouseButtonReleased(Engine::MouseButtonReleasedEvent &e)
 	return true;
 }
 
-bool ScalarFieldEditor::OnMouseMoved(Engine::MouseMovedEvent &e)
+bool ScalarFieldEditor::OnMouseMoved(const Engine::MouseMovedEvent &e)
 {
 	if (!m_IsMouseDown)
 		return false;
-	int x, y;
-	e.GetMousePixelPos(x, y);
-	m_MousePos = glm::fvec2(x, y);
-
-	m_WindowSize = e.GetWindow().GetWindowSize();
+	m_MousePos = e.GetMousePosition();
 	return true;
 }
 
-bool ScalarFieldEditor::OnKeyPressed(Engine::KeyboardKeyPressedEvent &e)
+bool ScalarFieldEditor::OnKeyPressed(const Engine::KeyboardKeyPressedEvent &e)
 {
 	switch (e.GetKey()) {
 	case GLFW_KEY_LEFT_CONTROL:
@@ -284,7 +328,7 @@ bool ScalarFieldEditor::OnKeyPressed(Engine::KeyboardKeyPressedEvent &e)
 	return false;
 }
 
-bool ScalarFieldEditor::OnKeyReleased(Engine::KeyboardKeyReleasedEvent &e)
+bool ScalarFieldEditor::OnKeyReleased(const Engine::KeyboardKeyReleasedEvent &e)
 {
 	switch (e.GetKey()) {
 	case GLFW_KEY_LEFT_CONTROL:

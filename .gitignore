@@ -4,5 +4,7 @@
 /cmake-build-debug-visual-studio/
 /cmake-build-debug-event-trace/
 /cmake-build-release-visual-studio/
+/cmake-build-debug-wsl/
 
 /.idea
+/.ai

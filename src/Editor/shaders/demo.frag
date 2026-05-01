@@ -11,6 +11,7 @@ uniform vec3 lightPos;
 uniform vec3 viewPos;
 uniform vec3 lightColor;
 uniform vec3 baseColor = vec3(1.f, 1.f, 1.f)*0.9;
+uniform bool debugNormals = false;
 
 // Params
 uniform float ambientStrength = 0.1;
@@ -25,6 +26,11 @@ void main()
 {
     // Normalize inputs
     vec3 norm = normalize(Normal);
+    if (debugNormals) {
+        FragColor = vec4(norm * 0.5 + 0.5, 1.0);
+        return;
+    }
+
     vec3 lightDir = normalize(lightPos - FragPos);
     vec3 viewDir = normalize(viewPos - FragPos);
 

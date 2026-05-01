@@ -5,6 +5,7 @@
 #include "FlyCamera.h"
 
 #include "Engine/Events/Events.h"
+#include "Engine/Shader.h"
 #include "glm/ext/quaternion_trigonometric.hpp"
 #include "glm/gtc/quaternion.hpp"
 #include "glm/gtx/norm.inl"
@@ -41,9 +42,12 @@ void FlyCamera::Update(float dt)
 		glm::angleAxis(glm::radians(m_EulerAngles.z), glm::vec3(0, 0, 1));
 
 	m_Rotation = yaw * pitch * roll;
+
+	// update shaders uniforms
+	SetUniforms(Engine::Shader::p_ShaderList[0], "view", "projection");
 }
 
-void FlyCamera::ImGuiExposeParameters()
+void FlyCamera::ImGuiRender(float dt)
 {
 	if (ImGui::TreeNode("Camera Settings")) {
 		ImGui::DragFloat3("Position", &m_Position[0]);

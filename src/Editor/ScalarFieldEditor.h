@@ -13,7 +13,7 @@
 
 class ScalarFieldEditor;
 
-class Brush
+class Brush : public Engine::IImGuiRender
 {
 	friend ScalarFieldEditor;
 
@@ -32,7 +32,7 @@ public:
 
 	float GetWeightWithFalloff(float dist);
 
-	void ImGuiExposeParameters();
+	void ImGuiRender(float dt) override;
 
 private:
 	void CompileCustomExpr()
@@ -50,10 +50,11 @@ private:
 		if (m_CustomExpr == nullptr)
 			return ConstantFalloff(x);
 		m_CustomVarX = x;
-		return te_eval(m_CustomExpr);
+		return (float) te_eval(m_CustomExpr);
 	}
-	float ConstantFalloff(float x) const { return x < m_Falloff ? 1 : 0; }
-	float LinearFalloff(float x) const
+	[[nodiscard]] float ConstantFalloff(float x) const
+	{ return x < m_Falloff ? 1.f : 0.f; }
+	[[nodiscard]] float LinearFalloff(float x) const
 	{ return std::max(1 - x / m_BrushSize, 0.f); }
 	float QuadraticFalloff(float x) const
 	{
@@ -109,14 +110,14 @@ private:
 	ScalarFieldEditor *m_ScalarFieldEditor;
 };
 
-class ScalarFieldEditor
+class ScalarFieldEditor : public Engine::IImGuiRender
 {
 	friend ScalarFieldEditorLayer;
 
 public:
 	ScalarFieldEditor();
 
-	void ImGuiExposeParameters();
+	void ImGuiRender(float dt) override;
 	void UpdateScalarFieldIfMouseDown(float dt,
 									  Terrain &terrain,
 									  const glm::mat4 &view,
@@ -127,38 +128,36 @@ private:
 						  Terrain &terrain,
 						  ScalarField *scalarField,
 						  glm::vec3 center,
-						  const glm::vec3 brushBounds[2]);
+						  const glm::ivec3 brushBounds[2]);
 	void ActionSmooth(float dt,
 					  Terrain &terrain,
-					  const ScalarField *scalarField,
+					  ScalarField *scalarField,
 					  glm::vec3 center,
-					  const glm::vec3 brushBounds[2]);
-	void ActionErode(float dt,
-					 Terrain &terrain,
-					 ScalarField *scalarField,
-					 glm::vec3 center,
-					 const glm::vec3 brushBounds[2]);
+					  const glm::ivec3 brushBounds[2]);
+	static void ActionErode(float dt,
+							Terrain &terrain,
+							ScalarField *scalarField,
+							glm::vec3 center,
+							const glm::ivec3 brushBounds[2]);
 
 public:
 	ScalarFieldEditorLayer *GetLayer() { return &m_Layer; }
 
 private:
 	// Events
-	bool OnMouseButtonPressed(Engine::MouseButtonPressedEvent &e);
-	bool OnMouseButtonReleased(Engine::MouseButtonReleasedEvent &e);
-	bool OnMouseMoved(Engine::MouseMovedEvent &e);
-	bool OnKeyPressed(Engine::KeyboardKeyPressedEvent &e);
-	bool OnKeyReleased(Engine::KeyboardKeyReleasedEvent &e);
+	bool OnMouseButtonPressed(const Engine::MouseButtonPressedEvent &e);
+	bool OnMouseButtonReleased(const Engine::MouseButtonReleasedEvent &e);
+	bool OnMouseMoved(const Engine::MouseMovedEvent &e);
+	bool OnKeyPressed(const Engine::KeyboardKeyPressedEvent &e);
+	bool OnKeyReleased(const Engine::KeyboardKeyReleasedEvent &e);
 
 
 private:
 	ScalarFieldEditorLayer m_Layer;
 	bool m_IsMouseDown = false;
-	glm::vec2 m_MousePos {}, m_WindowSize {};
+	glm::vec2 m_MousePos {};
 
 	Brush m_Brush;
-	long long m_ErosionIterations = 100;
-	float m_ErosionWeight = 0;
 	bool m_ErodeWhole = false;
 };
 

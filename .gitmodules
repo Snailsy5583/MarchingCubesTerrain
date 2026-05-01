@@ -19,3 +19,6 @@
 [submodule "vendor/tinyexpr"]
 	path = vendor/tinyexpr
 	url = https://github.com/Snailsy5583/tinyexpr.git
+[submodule "vendor/lygia"]
+	path = vendor/lygia
+	url = https://github.com/patriciogonzalezvivo/lygia.git

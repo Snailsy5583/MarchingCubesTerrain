@@ -8,6 +8,7 @@
 #include "Engine/Camera.h"
 #include "Engine/Events/KeyboardEvents.h"
 #include "Engine/Events/MouseEvents.h"
+#include "Engine/ImGuiRenderer.h"
 #include "Engine/Layer.h"
 
 class FlyCamera;
@@ -25,16 +26,16 @@ private:
 	FlyCamera *m_FlyCamera;
 };
 
-class FlyCamera : public Engine::Camera
+class FlyCamera : public Engine::Camera, public Engine::IImGuiRender
 {
 	friend class FlyCameraControllerLayer;
 
 public:
 	FlyCamera(float aspect, float speed = 5, float sensitivity = 1);
 
-	void Update(float dt);
+	void Update(float dt) override;
 
-	void ImGuiExposeParameters();
+	void ImGuiRender(float dt) override;
 
 public:	   // Event Management
 	FlyCameraControllerLayer *GetLayer() { return &m_FlyCameraController; }

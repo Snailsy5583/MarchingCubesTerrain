@@ -19,7 +19,7 @@ TerrainEditor::TerrainEditor()
 	  m_Camera((float) m_MainWindow->GetWindowSize().x /
 			   (float) m_MainWindow->GetWindowSize().y),
 	  shader(Engine::Shader::Compile("shaders/demo.vert", "shaders/demo.frag")),
-	  m_TerrainGenerator(glm::vec3 {10, 10, 10}, 30, 0.0, &shader),
+	  m_TerrainGenerator(glm::vec3 {10, 10, 10}, {30, 30, 30}, 0.0, &shader),
 	  test("assets/spot_triangulated_good.obj", &shader, Engine::Mesh::Static)
 
 {

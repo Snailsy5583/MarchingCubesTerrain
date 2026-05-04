@@ -14,22 +14,22 @@ ErosionSystem ErosionSystem::m_Instance {};
 
 static bool IsSurfaceAdjacent(const Terrain *terrain, const glm::ivec3 p)
 {
-	if (terrain->GetScalarFieldPtr()->at(terrain->GetIndex(p)).scalar <=
+	if (terrain->GetScalarFieldPtr()->at(terrain->ScalarIndexFromGridCoord(p)).scalar <=
 		terrain->GetThreshold())
 		return true;
 
 	const glm::ivec3 offsets[] = {{1, 0, 0}, {-1, 0, 0}, {0, 1, 0},
 								  {0, -1, 0}, {0, 0, 1}, {0, 0, -1}};
+	const glm::ivec3 resolution = terrain->GetResolution();
 	for (const glm::ivec3 offset : offsets) {
 		const glm::ivec3 sample = p + offset;
 		if (sample.x < 0 || sample.y < 0 || sample.z < 0 ||
-			sample.x >= terrain->GetResolution() ||
-			sample.y >= terrain->GetResolution() ||
-			sample.z >= terrain->GetResolution())
+			sample.x >= resolution.x || sample.y >= resolution.y ||
+			sample.z >= resolution.z)
 			continue;
 
 		if (terrain->GetScalarFieldPtr()
-				->at(terrain->GetIndex(sample))
+				->at(terrain->ScalarIndexFromGridCoord(sample))
 				.scalar <= terrain->GetThreshold())
 			return true;
 	}
@@ -43,9 +43,9 @@ void ErosionSystem::ErodeWhole(Terrain *terrain)
 	const glm::ivec3 interiorMax(terrain->GetResolution() - 1);
 	auto y = terrain->GetBounds()[1].y - terrain->GetVoxelSize().y;
 	props.dropletOriginBounds[0] =
-		terrain->Index2Pos(terrain->GetIndex(interiorMin));
+		terrain->WorldPositionFromGridCoord(interiorMin);
 	props.dropletOriginBounds[1] =
-		terrain->Index2Pos(terrain->GetIndex(interiorMax));
+		terrain->WorldPositionFromGridCoord(interiorMax);
 	props.dropletOriginBounds[0].y = y;
 	props.dropletOriginBounds[1].y = y;
 
@@ -74,7 +74,7 @@ void ErosionSystem::OneRainDrop(Terrain *terrain, ErodeProps props)
 	};
 
 	auto *sfp =
-		&scalarField[terrain->GetIndex(terrain->GetNearestGridPoint(origin))];
+		&scalarField[terrain->ScalarIndexFromGridCoord(terrain->NearestGridCoordFromWorldPosition(origin))];
 	auto *prevSfp = sfp;
 
 	// droplet properties
@@ -83,7 +83,7 @@ void ErosionSystem::OneRainDrop(Terrain *terrain, ErodeProps props)
 	glm::vec3 delta {};
 
 	for (int i = 0; i < p_Settings.maxDropIter; i++) {
-		int idx = terrain->GetIndex(terrain->GetNearestGridPoint(curDropPos));
+		int idx = terrain->ScalarIndexFromGridCoord(terrain->NearestGridCoordFromWorldPosition(curDropPos));
 		// const bool pastMaxDist =
 		// glm::distance2(origin, curDropPos) > props.maxDist * props.maxDist;
 
@@ -94,7 +94,7 @@ void ErosionSystem::OneRainDrop(Terrain *terrain, ErodeProps props)
 		// if (glm::dot(gradient, {0, 1, 0}) > props.slopeFlatThresh)
 		// break;
 
-		bool isInsideTerrain = terrain->IsPosInsideTerrain(curDropPos);
+		bool isInsideTerrain = terrain->IsWorldPositionSolid(curDropPos);
 		// detach drop from bottom of overhangs
 		bool isOverhang =
 			glm::dot(gradient, {0, -1, 0}) > p_Settings.slopeOverhangThresh;
@@ -109,8 +109,8 @@ void ErosionSystem::OneRainDrop(Terrain *terrain, ErodeProps props)
 		auto nextDropPos = curDropPos + delta;
 
 		prevSfp = sfp;
-		sfp = &scalarField[terrain->GetIndex(
-			terrain->GetNearestGridPoint(nextDropPos))];
+		sfp = &scalarField[terrain->ScalarIndexFromGridCoord(
+			terrain->NearestGridCoordFromWorldPosition(nextDropPos))];
 
 		// dont allow erosion/deposition if not touching terrain
 		if (!isInsideTerrain) {
@@ -168,10 +168,10 @@ glm::vec3 ErosionSystem::GetInterpolatedGradient(const Terrain *terrain,
 	glm::vec3 result {};
 	const glm::ivec3 lo = glm::clamp(
 		glm::ivec3(glm::floor(point)), glm::ivec3(0),
-		glm::ivec3(terrain->GetResolution() - 1));
+		terrain->GetResolution() - glm::ivec3(1));
 	const glm::ivec3 hi = glm::clamp(
 		lo + glm::ivec3(1), glm::ivec3(0),
-		glm::ivec3(terrain->GetResolution() - 1));
+		terrain->GetResolution() - glm::ivec3(1));
 	const glm::vec3 t = point - glm::vec3(lo);
 
 	for (int x = 0; x <= 1; x++) {
@@ -184,7 +184,7 @@ glm::vec3 ErosionSystem::GetInterpolatedGradient(const Terrain *terrain,
 									 (y ? t.y : 1 - t.y) *
 									 (z ? t.z : 1 - t.z);
 				result += terrain->GetScalarFieldPtr()
-							  ->at(terrain->GetIndex(p))
+							  ->at(terrain->ScalarIndexFromGridCoord(p))
 							  .gradient *
 						  weight;
 			}
@@ -200,10 +200,10 @@ void ErosionSystem::ChangeScalarFieldAtPos(Terrain *terrain,
 	glm::vec3 point = (pos - terrain->GetBounds()[0]) / terrain->GetVoxelSize();
 	const glm::ivec3 lo = glm::clamp(
 		glm::ivec3(glm::floor(point)), glm::ivec3(0),
-		glm::ivec3(terrain->GetResolution() - 1));
+		terrain->GetResolution() - glm::ivec3(1));
 	const glm::ivec3 hi = glm::clamp(
 		lo + glm::ivec3(1), glm::ivec3(0),
-		glm::ivec3(terrain->GetResolution() - 1));
+		terrain->GetResolution() - glm::ivec3(1));
 	const glm::vec3 t = point - glm::vec3(lo);
 
 	for (int x = 0; x <= 1; x++) {
@@ -216,7 +216,7 @@ void ErosionSystem::ChangeScalarFieldAtPos(Terrain *terrain,
 									 (y ? t.y : 1 - t.y) *
 									 (z ? t.z : 1 - t.z);
 				ScalarFieldPoint &sfp =
-					terrain->GetScalarFieldPtr()->at(terrain->GetIndex(p));
+					terrain->GetScalarFieldPtr()->at(terrain->ScalarIndexFromGridCoord(p));
 				if (scalarDelta < 0 && !IsSurfaceAdjacent(terrain, p))
 					continue;
 				sfp.scalar = std::clamp(

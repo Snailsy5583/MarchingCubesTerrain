@@ -17,7 +17,7 @@ class TerrainGenerator : public Engine::IImGuiRender
 {
 public:
 	TerrainGenerator(glm::vec3 size,
-					 int resolution,
+					 glm::ivec3 resolution,
 					 float threshold,
 					 Engine::Shader *shader);
 

@@ -58,6 +58,7 @@ private:
 	{ return std::max(1 - x / m_BrushSize, 0.f); }
 	float QuadraticFalloff(float x) const
 	{
+		x = 1 - x;
 		float negx = 1 - x;
 		switch (m_EasingType) {
 		case In: return x * x;
@@ -68,6 +69,7 @@ private:
 	}
 	float CubicFalloff(float x) const
 	{
+		x = 1 - x;
 		switch (m_EasingType) {
 		case In: return x * x * x;
 		case Out: return 1 - x * x * x;
@@ -77,6 +79,7 @@ private:
 	}
 	float SineFalloff(float x) const
 	{
+		x = 1 - x;
 		auto pi = glm::pi<float>();
 		switch (m_EasingType) {
 		case In: return 1 - std::cos(x * pi / 2);

@@ -12,7 +12,7 @@
 #include <Engine/Shader.h>
 
 TerrainGenerator::TerrainGenerator(const glm::vec3 size,
-								   const int resolution,
+								   const glm::ivec3 resolution,
 								   const float threshold,
 								   Engine::Shader *shader)
 	: m_Terrain(size, resolution, m_ScalarField, threshold, shader)
@@ -22,7 +22,7 @@ void TerrainGenerator::GenerateTerrain()
 {
 	const auto r = m_Terrain.GetResolution();
 	m_ScalarField.clear();
-	m_ScalarField.resize(r * r * r, {});
+	m_ScalarField.resize(r.x * r.y * r.z, {});
 
 	Engine::ComputeShader sfPopulator = Engine::ComputeShader::Compile(
 		glm::uvec3(r), "shaders/scalarFieldGen_FLAT.comp");
@@ -38,8 +38,7 @@ void TerrainGenerator::GenerateTerrain()
 	sfPopulator.SetUniform("gain", m_Gain);
 	sfPopulator.SetUniformVec("scale", m_Scale / m_Terrain.GetSize());
 	sfPopulator.SetUniformVec("translate", m_Translate);
-	sfPopulator.SetUniformVec("resolution",
-							  glm::vec3((float) m_Terrain.GetResolution()));
+	sfPopulator.SetUniformVec("resolution", glm::vec3(r));
 
 	sfPopulator.Dispatch();
 	sfPopulator.Join();
@@ -47,6 +46,7 @@ void TerrainGenerator::GenerateTerrain()
 
 	sfPopulator.p_Textures[0]->GetImage(m_ScalarField.data());
 
+	m_Terrain.RecalculateChunks();
 	m_Terrain.RecalculateGradients();
 	m_Terrain.MarchingCubes();
 	Engine::glCheckError();

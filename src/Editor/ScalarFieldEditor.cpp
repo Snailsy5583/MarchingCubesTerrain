@@ -8,6 +8,7 @@
 
 #include "Engine/Events/KeyboardEvents.h"
 #include "Engine/Events/MouseEvents.h"
+#include "Engine/Renderer.h"
 #include "TerrainGenerator/ErosionSystem.h"
 #include "glm/gtx/norm.hpp"
 #include "glm/gtx/string_cast.hpp"
@@ -109,27 +110,30 @@ void ScalarFieldEditor::UpdateScalarFieldIfMouseDown(const float dt,
 	if (nearestSFPIndex == -1)
 		return;
 
-	auto centerPos = terrain.Index2Pos(nearestSFPIndex);
-	glm::vec3 line[2] = {view[3], centerPos};
+	auto centerWorldPosition =
+		terrain.WorldPositionFromScalarIndex(nearestSFPIndex);
+	glm::vec3 line[2] = {view[3], centerWorldPosition};
 	Engine::Renderer::SubmitObject(
 		Engine::Renderer::GenLine(line, 1, Engine::Shader::p_ShaderList[0])
 			.get());
 
 	const glm::ivec3 brushBounds[2] = {
-		terrain.GetNearestGridPoint(centerPos -
-									glm::vec3(m_Brush.m_BrushSize / 2)),
-		terrain.GetNearestGridPoint(centerPos +
-									glm::vec3(m_Brush.m_BrushSize / 2))};
+		terrain.NearestGridCoordFromWorldPosition(
+			centerWorldPosition - glm::vec3(m_Brush.m_BrushSize / 2)),
+		terrain.NearestGridCoordFromWorldPosition(
+			centerWorldPosition + glm::vec3(m_Brush.m_BrushSize / 2))};
 	switch (m_Brush.m_ChosenAction) {
 	case Brush::Raise:
 	case Brush::Lower:
-		ActionRaiseLower(dt, terrain, scalarField, centerPos, brushBounds);
+		ActionRaiseLower(
+			dt, terrain, scalarField, centerWorldPosition, brushBounds);
 		break;
 	case Brush::Smooth:
-		ActionSmooth(dt, terrain, scalarField, centerPos, brushBounds);
+		ActionSmooth(
+			dt, terrain, scalarField, centerWorldPosition, brushBounds);
 		break;
 	case Brush::Erosion:
-		ActionErode(dt, terrain, scalarField, centerPos, brushBounds);
+		ActionErode(dt, terrain, scalarField, centerWorldPosition, brushBounds);
 		break;
 	default: break;
 	}
@@ -144,9 +148,10 @@ void ScalarFieldEditor::ActionRaiseLower(const float dt,
 	for (int x = brushBounds[0].x; x <= brushBounds[1].x; x++) {
 		for (int y = brushBounds[0].y; y <= brushBounds[1].y; y++) {
 			for (int z = brushBounds[0].z; z <= brushBounds[1].z; z++) {
-				auto i = terrain.GetIndex(x, y, z);
+				auto i = terrain.ScalarIndexFromGridCoord(x, y, z);
 				auto &point = (*scalarField)[i];
-				const float dist = glm::distance(center, terrain.Index2Pos(i));
+				const float dist = glm::distance(
+					center, terrain.WorldPositionFromScalarIndex(i));
 
 				if (dist > m_Brush.m_BrushSize)
 					continue;
@@ -159,8 +164,9 @@ void ScalarFieldEditor::ActionRaiseLower(const float dt,
 			}
 		}
 	}
-	terrain.RecalculateGradients();
-	terrain.MarchingCubes();
+	terrain.RecalculateGradients(brushBounds[0] - glm::ivec3 {1},
+								 brushBounds[1] + glm::ivec3 {1});
+	terrain.MarchingCubes(brushBounds[0], brushBounds[1]);
 }
 
 void ScalarFieldEditor::ActionSmooth(float dt,
@@ -176,8 +182,9 @@ void ScalarFieldEditor::ActionSmooth(float dt,
 	for (int x = brushBounds[0].x; x <= brushBounds[1].x; x++) {
 		for (int y = brushBounds[0].y; y <= brushBounds[1].y; y++) {
 			for (int z = brushBounds[0].z; z <= brushBounds[1].z; z++) {
-				const int i = terrain.GetIndex(x, y, z);
-				const float dist = glm::distance(center, terrain.Index2Pos(i));
+				const int i = terrain.ScalarIndexFromGridCoord(x, y, z);
+				const float dist = glm::distance(
+					center, terrain.WorldPositionFromScalarIndex(i));
 				if (dist > m_Brush.m_BrushSize)
 					continue;
 
@@ -187,13 +194,14 @@ void ScalarFieldEditor::ActionSmooth(float dt,
 					for (int dy = -1; dy <= 1; ++dy) {
 						for (int dz = -1; dz <= 1; ++dz) {
 							const int sampleX = std::clamp(
-								x + dx, 0, terrain.GetResolution() - 1);
+								x + dx, 0, terrain.GetResolution().x - 1);
 							const int sampleY = std::clamp(
-								y + dy, 0, terrain.GetResolution() - 1);
+								y + dy, 0, terrain.GetResolution().y - 1);
 							const int sampleZ = std::clamp(
-								z + dz, 0, terrain.GetResolution() - 1);
-							neighborAvg += originalScalars[terrain.GetIndex(
-								sampleX, sampleY, sampleZ)];
+								z + dz, 0, terrain.GetResolution().z - 1);
+							neighborAvg += originalScalars
+								[terrain.ScalarIndexFromGridCoord(
+									sampleX, sampleY, sampleZ)];
 							neighborCount++;
 						}
 					}
@@ -216,8 +224,9 @@ void ScalarFieldEditor::ActionSmooth(float dt,
 			}
 		}
 	}
-	terrain.RecalculateGradients();
-	terrain.MarchingCubes();
+	terrain.RecalculateGradients(brushBounds[0] - glm::ivec3 {1},
+								 brushBounds[1] + glm::ivec3 {1});
+	terrain.MarchingCubes(brushBounds[0], brushBounds[1]);
 }
 
 void ScalarFieldEditor::ActionErode(float dt,
@@ -228,9 +237,9 @@ void ScalarFieldEditor::ActionErode(float dt,
 {
 	ErodeProps props {};
 	props.dropletOriginBounds[0] =
-		terrain.Index2Pos(terrain.GetIndex(brushBounds[0]));
+		terrain.WorldPositionFromGridCoord(brushBounds[0]);
 	props.dropletOriginBounds[1] =
-		terrain.Index2Pos(terrain.GetIndex(brushBounds[1]));
+		terrain.WorldPositionFromGridCoord(brushBounds[1]);
 	props.dropletOriginBounds[0].y = props.dropletOriginBounds[1].y;
 
 	ErosionSystem::GetInstance()->Erode(&terrain, props);

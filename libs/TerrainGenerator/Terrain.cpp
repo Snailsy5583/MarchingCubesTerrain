@@ -4,6 +4,7 @@
 
 #include "Terrain.h"
 
+#include "Engine/Renderer.h"
 #include "TerrainGenerator.h"
 #include "glm/gtx/norm.inl"
 #include "imgui.h"
@@ -11,6 +12,8 @@
 #include <algorithm>
 #include <limits>
 #include <map>
+#include <mutex>
+#include <thread>
 
 /// edgeToVertices[i] = {a, b} => edge i joins vertices a and b
 int edgeToVertices[12][2] = {{0, 1},
@@ -313,16 +316,57 @@ const int triangleTable[256][16] = {
 	{0, 3, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
 	{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}};
 
+TerrainChunk::TerrainChunk(glm::ivec3 minCell,
+						   glm::ivec3 maxCell,
+						   ScalarField &scalarField,
+						   int id,
+						   Engine::Shader *shader)
+	: m_Mesh(std::make_unique<Engine::Mesh>(shader, Engine::Mesh::Dynamic)),
+	  m_MinCell(minCell), m_MaxCell(maxCell), m_ScalarField(scalarField),
+	  m_ID(id)
+{
+}
+
+void TerrainChunk::Rebuild(const Terrain &terrain)
+{
+	RebuildGeometry(terrain);
+	UpdateMesh();
+}
+
+void TerrainChunk::RebuildGeometry(const Terrain &terrain)
+{
+	m_Mesh->p_Vertices.clear();
+	m_Mesh->p_Indices.clear();
+
+	for (int i = m_MinCell.x; i < m_MaxCell.x; i++)
+		for (int j = m_MinCell.y; j < m_MaxCell.y; j++)
+			for (int k = m_MinCell.z; k < m_MaxCell.z; k++)
+				terrain.AppendCellTriangles(
+					i, j, k, m_Mesh->p_Vertices, m_Mesh->p_Indices);
+}
+
+void TerrainChunk::UpdateMesh()
+{
+	m_Mesh->UpdateMesh();
+}
+
+void TerrainChunk::Render() const
+{
+	m_Mesh->p_RenderObject.shader->SetUniformVec("pos", glm::vec3(0.0f));
+	Engine::Renderer::SubmitObject(m_Mesh.get());
+}
+
+void TerrainChunk::SetShader(Engine::Shader *shader)
+{ m_Mesh->GenRendererObj(shader); }
+
 Terrain::Terrain(const glm::vec3 size,
-				 const int resolution,
+				 const glm::ivec3 resolution,
 				 ScalarField &scalarField,
 				 const float threshold,
 				 Engine::Shader *shader)
-	: GameObject(std::make_unique<Engine::Mesh>(shader, Engine::Mesh::Dynamic),
-				 {0, 0, 0},
-				 {1, 0, 0, 0}),
-	  m_ScalarField {scalarField}, m_Resolution(resolution), m_Size(size),
-	  m_Bounds {-size / 2.f, size / 2.f}, m_Threshold(threshold)
+	: m_ScalarField {scalarField}, m_Resolution(resolution), m_Size(size),
+	  m_Bounds {-size / 2.f, size / 2.f}, m_Shader(shader),
+	  m_Threshold(threshold)
 {
 }
 
@@ -330,7 +374,8 @@ void Terrain::ImGuiRender(float dt)
 {
 	if (ImGui::TreeNode("Terrain Mesh")) {
 		ImGui::DragFloat3("Scale", &m_Size[0]);
-		ImGui::DragInt("Resolution", &m_Resolution);
+		ImGui::DragInt3("Resolution", &m_Resolution[0]);
+		ImGui::DragInt3("Chunk Size", &m_ChunkCellSize[0]);
 		ImGui::DragFloat("Threshold", &m_Threshold, 0.001f, -1.0f, 1.0f);
 		ImGui::TreePop();
 	}
@@ -349,9 +394,9 @@ int Terrain::calculate_cube_index(const std::vector<int> &cell,
 
 bool Terrain::IsBoundaryScalarFieldPoint(const int index) const
 {
-	const glm::ivec3 p = GetScalarFieldPointPos(index);
-	return p.x == 0 || p.y == 0 || p.z == 0 || p.x == m_Resolution - 1 ||
-		   p.y == m_Resolution - 1 || p.z == m_Resolution - 1;
+	const glm::ivec3 p = GridCoordFromScalarIndex(index);
+	return p.x == 0 || p.y == 0 || p.z == 0 || p.x == m_Resolution.x - 1 ||
+		   p.y == m_Resolution.y - 1 || p.z == m_Resolution.z - 1;
 }
 
 float Terrain::GetScalarValueForMeshing(const int index,
@@ -378,10 +423,11 @@ Terrain::get_intersection_points(const std::vector<int> &cell,
 			const int v1 = edgeToVertices[idx][0], v2 = edgeToVertices[idx][1];
 			const float scalar1 = GetScalarValueForMeshing(cell[v1], isovalue);
 			const float scalar2 = GetScalarValueForMeshing(cell[v2], isovalue);
-			auto pos1 = Index2Pos(cell[v1]), pos2 = Index2Pos(cell[v2]);
+			auto worldPosition1 = WorldPositionFromScalarIndex(cell[v1]);
+			auto worldPosition2 = WorldPositionFromScalarIndex(cell[v2]);
 
-			const glm::vec3 intersectionPoint =
-				interpolate(pos1, scalar1, pos2, scalar2, isovalue);
+			const glm::vec3 intersectionPoint = interpolate(
+				worldPosition1, scalar1, worldPosition2, scalar2, isovalue);
 			intersections[idx] = intersectionPoint;
 		}
 		idx++;
@@ -440,101 +486,216 @@ glm::vec3 Terrain::interpolate(const glm::vec3 &v1,
 
 void Terrain::MarchingCubes() const
 {
-	const auto max = glm::ivec3(m_Resolution);
-	std::vector<unsigned int> &indices = m_Mesh->p_Indices;
-	indices.clear();
-	std::vector<Engine::Vertex> &vertices = m_Mesh->p_Vertices;
-	vertices.clear();
+	const unsigned int hardwareThreadCount =
+		std::thread::hardware_concurrency();
+	const size_t threadCount = std::min<size_t>(
+		hardwareThreadCount == 0 ? 1 : hardwareThreadCount, m_Chunks.size());
 
-	for (int i = 0; i + 1 < max.x; i++) {
-		for (int j = 0; j + 1 < max.y; j++) {
-			for (int k = 0; k + 1 < max.z; k++) {
-				// cell ordered according to convention in referenced website
-				const int index = GetIndex(i, j, k);
-				const auto cell = {
-					index,
-					index + m_Resolution * m_Resolution,
-					index + m_Resolution * m_Resolution + 1,
-					index + 1,
-					index + m_Resolution,
-					index + m_Resolution * m_Resolution + m_Resolution,
-					index + m_Resolution * m_Resolution + m_Resolution + 1,
-					index + m_Resolution + 1};
+	if (threadCount == 0)
+		return;
 
-				// Get the indices in the vertices vector of the vertices we've
-				// already created from previous cells
+	std::vector<std::thread> threads;
+	threads.reserve(threadCount);
+	const size_t chunksPerThread =
+		(m_Chunks.size() + threadCount - 1) / threadCount;
 
+	for (size_t i = 0; i < threadCount; i++) {
+		const size_t start = i * chunksPerThread;
+		const size_t end = std::min(start + chunksPerThread, m_Chunks.size());
+		threads.emplace_back([&, start, end] {
+			for (size_t c = start; c < end; c++)
+				m_Chunks[c]->RebuildGeometry(*this);
+		});
+	}
 
-				const int cubeIndex = calculate_cube_index(cell, m_Threshold);
-				const std::vector<glm::vec3> intersections =
-					get_intersection_points(cell, m_Threshold);
-				const std::vector<glm::vec3> normals =
-					get_intersection_normals(cell, m_Threshold);
+	for (auto &thread : threads)
+		thread.join();
 
-				std::vector intersectionIndices = {
-					-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+	for (const auto &chunk : m_Chunks)
+		chunk->UpdateMesh();
 
-				for (int idx = 0; triangleTable[cubeIndex][idx] != -1; idx++) {
-					const int vertexId = triangleTable[cubeIndex][idx];
-					if (intersectionIndices[vertexId] == -1) {
-						vertices.push_back({intersections[vertexId],
-											normals[vertexId],
-											glm::vec2(0, 0)});
-						intersectionIndices[vertexId] = vertices.size() - 1;
-					}
-					indices.push_back(intersectionIndices[vertexId]);
-				}
+	Engine::glCheckError();
+}
+
+void Terrain::MarchingCubes(glm::ivec3 dirtyMin, glm::ivec3 dirtyMax) const
+{
+	dirtyMin = glm::clamp(
+		dirtyMin - glm::ivec3(1), glm::ivec3(0), m_Resolution - glm::ivec3(2));
+	dirtyMax =
+		glm::clamp(dirtyMax, glm::ivec3(0), m_Resolution - glm::ivec3(2));
+
+	const glm::ivec3 chunkMin = dirtyMin / m_ChunkCellSize;
+	const glm::ivec3 chunkMax = dirtyMax / m_ChunkCellSize;
+
+	for (int x = chunkMin.x; x <= chunkMax.x; x++)
+		for (int y = chunkMin.y; y <= chunkMax.y; y++)
+			for (int z = chunkMin.z; z <= chunkMax.z; z++)
+				m_Chunks[GetChunkIndex({x, y, z})]->Rebuild(*this);
+
+	Engine::glCheckError();
+}
+
+void Terrain::AppendCellTriangles(const int i,
+								  const int j,
+								  const int k,
+								  std::vector<Engine::Vertex> &vertices,
+								  std::vector<unsigned int> &indices) const
+{
+	// cell ordered according to convention in referenced website
+	const auto cell = {ScalarIndexFromGridCoord(i, j, k),
+					   ScalarIndexFromGridCoord(i + 1, j, k),
+					   ScalarIndexFromGridCoord(i + 1, j, k + 1),
+					   ScalarIndexFromGridCoord(i, j, k + 1),
+					   ScalarIndexFromGridCoord(i, j + 1, k),
+					   ScalarIndexFromGridCoord(i + 1, j + 1, k),
+					   ScalarIndexFromGridCoord(i + 1, j + 1, k + 1),
+					   ScalarIndexFromGridCoord(i, j + 1, k + 1)};
+
+	const int cubeIndex = calculate_cube_index(cell, m_Threshold);
+	const std::vector<glm::vec3> intersections =
+		get_intersection_points(cell, m_Threshold);
+	const std::vector<glm::vec3> normals =
+		get_intersection_normals(cell, m_Threshold);
+
+	std::vector intersectionIndices = {
+		-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+
+	for (int idx = 0; triangleTable[cubeIndex][idx] != -1; idx++) {
+		const int vertexId = triangleTable[cubeIndex][idx];
+		if (intersectionIndices[vertexId] == -1) {
+			vertices.push_back(
+				{intersections[vertexId], normals[vertexId], glm::vec2(0, 0)});
+			intersectionIndices[vertexId] = vertices.size() - 1;
+		}
+		indices.push_back(intersectionIndices[vertexId]);
+	}
+}
+
+glm::ivec3 Terrain::GetChunkCounts() const
+{
+	const glm::ivec3 cells =
+		glm::max(m_Resolution - glm::ivec3(1), glm::ivec3(1));
+	return (cells + glm::ivec3(m_ChunkCellSize - 1)) / m_ChunkCellSize;
+}
+
+int Terrain::GetChunkIndex(const glm::ivec3 chunk) const
+{
+	return chunk.x * m_ChunkCounts.y * m_ChunkCounts.z +
+		   chunk.y * m_ChunkCounts.z + chunk.z;
+}
+
+void Terrain::RecalculateChunks()
+{
+	glm::ivec3 chunkCounts = GetChunkCounts();
+	if (chunkCounts == m_ChunkCounts &&
+		m_Chunks.size() ==
+			(size_t) (chunkCounts.x * chunkCounts.y * chunkCounts.z))
+		return;
+
+	m_ChunkCounts = chunkCounts;
+	m_Chunks.clear();
+	m_Chunks.reserve(m_ChunkCounts.x * m_ChunkCounts.y * m_ChunkCounts.z);
+
+	int id = 0;
+	for (int x = 0; x < m_ChunkCounts.x; x++) {
+		for (int y = 0; y < m_ChunkCounts.y; y++) {
+			for (int z = 0; z < m_ChunkCounts.z; z++) {
+				const glm::ivec3 minCell =
+					glm::ivec3(x, y, z) * m_ChunkCellSize;
+				const glm::ivec3 maxCell =
+					glm::min(minCell + glm::ivec3(m_ChunkCellSize),
+							 m_Resolution - glm::ivec3(1));
+				m_Chunks.push_back(std::make_unique<TerrainChunk>(
+					minCell, maxCell, m_ScalarField, id++, m_Shader));
 			}
 		}
 	}
+}
 
-	m_Mesh->UpdateMesh();
-	Engine::glCheckError();
+void Terrain::SetShader(Engine::Shader *shader)
+{
+	m_Shader = shader;
+	for (auto &chunk : m_Chunks)
+		chunk->SetShader(shader);
+}
+
+void Terrain::Render() const
+{
+	for (const auto &chunk : m_Chunks) {
+		if (!chunk->m_Mesh || chunk->m_Mesh->p_Indices.empty())
+			continue;
+		chunk->Render();
+	}
 }
 
 void Terrain::RecalculateGradients()
 {
 	const glm::vec3 voxelSize = GetVoxelSize();
 
-	for (int x = 0; x < m_Resolution; ++x) {
-		for (int y = 0; y < m_Resolution; ++y) {
-			for (int z = 0; z < m_Resolution; ++z) {
-				const int index = GetIndex(x, y, z);
-				auto &point = m_ScalarField[index];
-
-				const int xPrev = std::max(x - 1, 0);
-				const int xNext = std::min(x + 1, m_Resolution - 1);
-				const int yPrev = std::max(y - 1, 0);
-				const int yNext = std::min(y + 1, m_Resolution - 1);
-				const int zPrev = std::max(z - 1, 0);
-				const int zNext = std::min(z + 1, m_Resolution - 1);
-
-				const float dx =
-					m_ScalarField[GetIndex(xNext, y, z)].scalar -
-					m_ScalarField[GetIndex(xPrev, y, z)].scalar;
-				const float dy =
-					m_ScalarField[GetIndex(x, yNext, z)].scalar -
-					m_ScalarField[GetIndex(x, yPrev, z)].scalar;
-				const float dz =
-					m_ScalarField[GetIndex(x, y, zNext)].scalar -
-					m_ScalarField[GetIndex(x, y, zPrev)].scalar;
-
-				const float xSpacing = (xNext - xPrev) * voxelSize.x;
-				const float ySpacing = (yNext - yPrev) * voxelSize.y;
-				const float zSpacing = (zNext - zPrev) * voxelSize.z;
-
-				point.gradient = {
-					xSpacing > 0.0f ? dx / xSpacing : 0.0f,
-					ySpacing > 0.0f ? dy / ySpacing : 0.0f,
-					zSpacing > 0.0f ? dz / zSpacing : 0.0f};
-			}
+	for (int x = 0; x < m_Resolution.x; ++x) {
+		for (int y = 0; y < m_Resolution.y; ++y) {
+			for (int z = 0; z < m_Resolution.z; ++z)
+				RecalculateGradientAt(x, y, z, voxelSize);
 		}
 	}
 }
 
-bool Terrain::IsPosInsideTerrain(const glm::vec3 pos) const
+void Terrain::RecalculateGradients(glm::ivec3 dirtyMin, glm::ivec3 dirtyMax)
 {
-	return m_ScalarField[GetIndex(GetNearestGridPoint(pos))].scalar >
+	const glm::vec3 voxelSize = GetVoxelSize();
+
+	dirtyMin =
+		glm::clamp(dirtyMin - glm::ivec3(1), glm::ivec3(0), m_Resolution - 1);
+	dirtyMax =
+		glm::clamp(dirtyMax + glm::ivec3(1), glm::ivec3(0), m_Resolution - 1);
+
+	for (int x = dirtyMin.x; x <= dirtyMax.x; ++x) {
+		for (int y = dirtyMin.y; y <= dirtyMax.y; ++y) {
+			for (int z = dirtyMin.z; z <= dirtyMax.z; ++z)
+				RecalculateGradientAt(x, y, z, voxelSize);
+		}
+	}
+}
+
+void Terrain::RecalculateGradientAt(const int x,
+									const int y,
+									const int z,
+									const glm::vec3 voxelSize)
+{
+	const int index = ScalarIndexFromGridCoord(x, y, z);
+	auto &point = m_ScalarField[index];
+
+	const int xPrev = std::max(x - 1, 0);
+	const int xNext = std::min(x + 1, m_Resolution.x - 1);
+	const int yPrev = std::max(y - 1, 0);
+	const int yNext = std::min(y + 1, m_Resolution.y - 1);
+	const int zPrev = std::max(z - 1, 0);
+	const int zNext = std::min(z + 1, m_Resolution.z - 1);
+
+	const float dx =
+		m_ScalarField[ScalarIndexFromGridCoord(xNext, y, z)].scalar -
+		m_ScalarField[ScalarIndexFromGridCoord(xPrev, y, z)].scalar;
+	const float dy =
+		m_ScalarField[ScalarIndexFromGridCoord(x, yNext, z)].scalar -
+		m_ScalarField[ScalarIndexFromGridCoord(x, yPrev, z)].scalar;
+	const float dz =
+		m_ScalarField[ScalarIndexFromGridCoord(x, y, zNext)].scalar -
+		m_ScalarField[ScalarIndexFromGridCoord(x, y, zPrev)].scalar;
+
+	const float xSpacing = (xNext - xPrev) * voxelSize.x;
+	const float ySpacing = (yNext - yPrev) * voxelSize.y;
+	const float zSpacing = (zNext - zPrev) * voxelSize.z;
+
+	point.gradient = {xSpacing > 0.0f ? dx / xSpacing : 0.0f,
+					  ySpacing > 0.0f ? dy / ySpacing : 0.0f,
+					  zSpacing > 0.0f ? dz / zSpacing : 0.0f};
+}
+
+bool Terrain::IsWorldPositionSolid(const glm::vec3 worldPosition) const
+{
+	const glm::ivec3 gridCoord =
+		NearestGridCoordFromWorldPosition(worldPosition);
+	return m_ScalarField[ScalarIndexFromGridCoord(gridCoord)].scalar >
 		   m_Threshold;
 }
 
@@ -613,7 +774,7 @@ int Terrain::RayCast(glm::vec3 origin, glm::vec3 dir, float maxDist) const
 	const glm::vec3 startPos = origin + dir * startT;
 	const glm::vec3 vs = GetVoxelSize();
 	glm::ivec3 step = glm::ivec3(glm::sign(dir));
-	glm::ivec3 gridPoint = GetNearestGridPoint(startPos);
+	glm::ivec3 gridPoint = NearestGridCoordFromWorldPosition(startPos);
 
 	if (glm::distance2(origin, startPos) > maxDist * maxDist)
 		return -1;
@@ -631,11 +792,11 @@ int Terrain::RayCast(glm::vec3 origin, glm::vec3 dir, float maxDist) const
 
 	while (true) {
 		if (gridPoint.x < 0 || gridPoint.y < 0 || gridPoint.z < 0 ||
-			gridPoint.x >= m_Resolution || gridPoint.y >= m_Resolution ||
-			gridPoint.z >= m_Resolution)
+			gridPoint.x >= m_Resolution.x || gridPoint.y >= m_Resolution.y ||
+			gridPoint.z >= m_Resolution.z)
 			break;
 
-		int i = GetIndex(gridPoint.x, gridPoint.y, gridPoint.z);
+		int i = ScalarIndexFromGridCoord(gridPoint.x, gridPoint.y, gridPoint.z);
 		if (i < 0 || i >= m_ScalarField.size())
 			break;
 
